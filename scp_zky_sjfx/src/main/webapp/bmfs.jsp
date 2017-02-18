@@ -30,6 +30,7 @@
 <div class="main">
 	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">报名方式</a></h2>
+	<!-- 
 	<div class="bmfs">
 		<div class="time">
 			<h4>会议注册截止时间 </h4>
@@ -53,6 +54,7 @@
 		                                                                                      style="padding-top:0;"><img
 				src="<%=path%>/static/spkx/images/ewm01.png"><span>食品科学服务号</span></span></div>
 	</div>
+	-->
 </div>
 <div class="container-fluid">
 	<div class="row">
