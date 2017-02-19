@@ -112,7 +112,7 @@
 					<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">
 							<label class="screen-reader-text">职称/职务：</label>
-							<input type="text" name="job" id="job" value="" class="form-control" autocomplete="off" placeholder="非必填"
+							<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"
 							       value="${register.job}" ${not empty register?'disabled="disabled"':''} />
 						</div>
 					</div>

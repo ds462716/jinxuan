@@ -92,15 +92,15 @@
 					<label class="col-sm-2 control-label">代表性质:</label>
 					<div class="col-sm-4">
 						<select id="usertype" class="form-control input-sm" name="usertype">
-							<option value="普通代表" selected="selected">普通代表</option>
-							<option value="在校学生" >在校学生</option>
-							<option value="征文作者" >征文作者</option>
+							<option value="普通代表" ${not empty register and register.usertype eq '普通代表'?'selected="selected"':''}>普通代表</option>
+							<option value="在校学生" ${not empty register and register.usertype eq '在校学生'?'selected="selected"':''}>在校学生</option>
+							<option value="征文作者" ${not empty register and register.usertype eq '征文作者'?'selected="selected"':''}>征文作者</option>
 						</select>
 					</div>
 
 					<label class="col-sm-2 control-label">住宿要求:</label>
 					<div class="col-sm-4">
-						<input class="form-control" id="zsyq" name="zsyq" type="text"/>
+						<input class="form-control" id="zsyq" name="zsyq" type="text" value="${register.zsyq}"/>
 					</div>
 				</div>
 			</div>
@@ -108,7 +108,12 @@
 				<div class="group">
 					<label class="col-sm-2 control-label">缴费凭据:</label>
 					<div class="col-sm-10">
-						<input type="file" name="file" id="file" class="form-control"/>
+						<c:if test="${empty thesis}">
+							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}"/>
+						</c:if>
+						<c:if test="${not empty thesis}">
+							<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -169,7 +174,10 @@
 				var fileName =  $("#file").val();
 				debugger;
 				RegisterService.uploadFile(register,files, fileName,function(ret){
-					if(ret) alert("提交成功!");
+					if(ret) {
+						alert("提交成功!");
+						window.loaction.reload();
+					}
 				});
 			}else{
 				alert("请先登录后再提交!");

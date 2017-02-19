@@ -257,6 +257,7 @@ public class RegisterService {
 			ctx.getSession().setAttribute("thesis", this.getThesisByRegisterId(sreg.get("id").toString()));
 			//更新用户信息
 			db.execute("update t_register set zfflag = ?,usertype = ?, zsyq = ? where id = ? ", new Object[]{1,reg.getUsertype(),reg.getZsyq(),sreg.get("id").toString()});
+			ctx.getSession().setAttribute("register", db.queryOne("select * from t_register where id = ? ", new Object[]{reg.getId()}));
 		}
 		return true;
 	}

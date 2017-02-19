@@ -51,7 +51,7 @@
 		needLinkStyle="yes"
 		params="<%=param.toString()%>"
 		width="-1"
-		saveAsName="“地理科研写作高级研修班”（第一期）——报名表"
+		saveAsName="报名表"
 		exceptionPage="/report/reportJsp/myError2.jsp"
 	/>
 </div>
