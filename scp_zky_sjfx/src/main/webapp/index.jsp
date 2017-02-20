@@ -159,7 +159,7 @@
 		<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a href="#">时间&地点</a>
 		</h2>
 		<div class="fyhk">
-			<p>会议时间：2016年6月8日-9日（6月7日报道，10日离会）
+			<p>会议时间：2016年6月8日-9日（6月7日报到，10日离会）
 				<br>会议地点：北京，具体地址待定。
 			</p>
 		</div>
