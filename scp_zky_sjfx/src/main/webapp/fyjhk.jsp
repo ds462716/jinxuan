@@ -108,18 +108,21 @@
 				<div class="group">
 					<label class="col-sm-2 control-label">缴费凭据:</label>
 					<div class="col-sm-10">
-						<c:if test="${empty thesis}">
-							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}"/>
-						</c:if>
-						<c:if test="${not empty thesis}">
-							<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>
-						</c:if>
+
+							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'}/>
+
+							<a id="fileName" class="form-control col-sm-10" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a>
+
 					</div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-success  btn-block" id="btn-sendEmail" data-loading-text="保存中..."
+			<button type="button" class="btn btn-info  " id="btn-clear" data-loading-text="保存中..."
+			        autocomplete="off"> 清 除
+			</button>
+			<button type="button" class="btn btn-success pull-right" id="btn-sendEmail" data-loading-text="保存中..."
 			        autocomplete="off"> 提 交
 			</button>
+
 		</div>
 	</div>
 </div>
@@ -172,7 +175,10 @@
 				};
 				var files = dwr.util.getValue("file");//这是dwr包提供的util.js文件里面的方法
 				var fileName =  $("#file").val();
-				debugger;
+				if(!fileName){
+					alert("请选择需要上传的缴费凭据!");return;
+				}
+
 				RegisterService.uploadFile(register,files, fileName,function(ret){
 					if(ret) {
 						alert("提交成功!");
@@ -183,6 +189,15 @@
 				alert("请先登录后再提交!");
 				window.location.href = 'login.jsp';
 			}
+		});
+		$("#btn-clear").click(function () {
+			$("#fileName").attr('style','display: none');
+			$("#file").attr('style','display: inline');
+
+			var file = $("#file")
+			file.after(file.clone().val(""));
+			file.remove();
+			file.val('');
 		});
 	});
 </script>

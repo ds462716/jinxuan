@@ -23,8 +23,4 @@ $(function(){
 	$('.btn-enindex').off('click').on('click',function(e){
 		window.location.href = 'en_index.jsp';
 	});
-	//注册倒计时插件
-    $('time').countDown({
-        with_separators: false
-    });
 });

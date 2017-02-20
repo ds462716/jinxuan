@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<script src="<%=path%>/static/js/jquery.countdown.js"></script>
+
 <div class="topbox">
 	<div class="lang">
 		<c:if test="${not empty register}">
@@ -22,7 +22,7 @@
 	<div class="bm">
 		<a href="info.jsp"><img src="<%=path%>/static/spkx/images/top_bm.png"></a>
 	</div>
-	<div class="djs"><time>2017-06-08T09:00:00+0100</time></div><!-- Paris (winter) -->
+
 </div>
 <div class="navbox">
 	<div class="nav-spkx">

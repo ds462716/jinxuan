@@ -54,6 +54,14 @@ public class RegisterService {
 		return db.queryBlob(sql,new Object[]{fileid});
 	}
 
+	/**
+	 * 注册
+	 * @param reg
+	 * @param isSendMail
+	 * @param file
+	 * @param fileName
+	 * @return
+	 */
 	public boolean register(Register reg,boolean isSendMail,InputStream file , String fileName){
 		/*String sql = "insert into t_register"
 				+ "(username,nickname,password,telphone,email,sex,company,job,journalname,message"
@@ -73,15 +81,29 @@ public class RegisterService {
 				,reg.getGjbh(),reg.getGjtm(),reg.getGjzt(),reg.getSfztlw(),reg.getSfsqhyfy()
 				,reg.getFytm(),reg.getFynrzy(),reg.getSfzs(),reg.getZskssj(),reg.getZsjssj(),reg.getYqhfszt()
 				,new Date()});*/
-		String sql = "insert into t_register"
-				+ "(nickname,password,telphone,email,sex,job"
-				+ ",company,registertime) "
-				+ "values(?,?,?,?,?,?,?,?)";
-		boolean success = db.execute(sql, new Object[]{
-				reg.getNickname(),StringUtil.MD5(reg.getPassword()),
-				reg.getTelphone(),reg.getEmail(),reg.getSex()
-				,reg.getJob(),reg.getCompany()
-				,new Date()});
+		boolean success=true;
+		if("null".equals(  String.valueOf(reg.getId())) || "0".equals(  String.valueOf(reg.getId()))) {
+			String sql = "insert into t_register"
+					+ "(nickname,password,telphone,email,sex,job"
+					+ ",company,registertime) "
+					+ "values(?,?,?,?,?,?,?,?)";
+			success = db.execute(sql, new Object[]{
+					reg.getNickname(),StringUtil.MD5(reg.getPassword()),
+					reg.getTelphone(),reg.getEmail(),reg.getSex()
+					,reg.getJob(),reg.getCompany()
+					,new Date()});
+		}else{//修改
+			StringBuffer sql = new StringBuffer("update t_register set nickname=?,telphone=?,sex=?,job=?,company=?,usertype=?,zsyq=?");
+			if(reg.getPassword()!=null&&!"".equals(reg.getPassword())){
+				sql.append(",password='"+StringUtil.MD5(reg.getPassword())+"'");
+			}
+			sql.append(" where id = "+reg.getId());
+			System.out.println(sql.toString());
+			success = db.execute(sql.toString(), new Object[]{
+					reg.getNickname(),reg.getTelphone(),reg.getSex()
+					,reg.getJob(),reg.getCompany(),reg.getUsertype(),reg.getZsyq()});
+		}
+
 		if(success) {
 			WebContext ctx = WebContextFactory.get();
 			Map sreg = db.queryOne("select * from t_register where email = ? ", new Object[]{reg.getEmail()});
@@ -235,7 +257,7 @@ public class RegisterService {
 		WebContext ctx = WebContextFactory.get();
 		Map sreg = db.queryOne("select * from t_register where id = ? ", new Object[]{reg.getId()});
 		//文件上传
-		if(file!=null&&fileName!=null){
+		if(file!=null&&fileName!=null&&!"".equals(fileName)){
 			Thesis thesis = new Thesis();
 			thesis.setRegisterid(sreg.get("id").toString());
 			thesis.setRegisteremail(sreg.get("email").toString());

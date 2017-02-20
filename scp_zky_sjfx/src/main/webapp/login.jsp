@@ -48,9 +48,9 @@
 				<form id="loginForm">
 					<div class="col-sm-8 col-sm-offset-2">
 						<div class="inputContainer">
-							<label class="screen-reader-text">用户名：</label>
+							<label class="screen-reader-text">邮箱：</label>
 							<input type="text" name="email" id="email" value="" class="form-control" autocomplete="off"
-							       placeholder="请输入注册时填写的用户名"/>
+							       placeholder="请输入注册时填写的邮箱"/>
 						</div>
 					</div>
 

@@ -155,7 +155,7 @@ textarea {
 .topbox {
     width: 100%;
     height: 400px;
-    background: url(../images/top.png) 100%;
+    background: url(../images/top4.png) 100%;
     position: relative;
 }
 .topbox .lang {
@@ -209,7 +209,7 @@ textarea {
 }
 .navbox{width:100%; height:60px; background:#222; margin-bottom:20px;}
 .nav-spkx{width:1000px; height:60px; margin:0 auto;}
-.nav-spkx li{float:left; height:60px; font:normal 18px/59px Microsoft Yahei; color:#fff; padding:0 16px;}
+.nav-spkx li{float:left; height:60px; font:normal 18px/59px Microsoft Yahei; color:#fff; padding:0 80px 0 10px;}
 .nav-spkx li a{color:#fff;}
 .nav-spkx li a:hover{color:#bae1ff; text-decoration:none;}
 .navbox-wap {
@@ -746,15 +746,18 @@ p.animated {
 #zsyq{
 	margin-bottom: 5px;
 }
-#btn-sendEmail{
+#btn-sendEmail,#btn-clear{
 	margin-top: 5px;
 }
 
 /* ----倒计时用到的css------------------------------------------------------------------------------------- */
-.djs{
-    margin-top: -200px;
-    float:right
+
+.djs h3{
+	margin-top: 28%;
+	color: #8a8a90;
+	float:right;
 }
+
 .countdown {
     display: table-cell;
     font-weight: normal;
@@ -1008,11 +1011,17 @@ p.animated {
     }
 
     .djs{
-        margin-top: -40px;
-        float:none;
+        /*margin-top: -40px;*/
+        /*float:none;*/
+	    text-align:center;
     }
+	.djs h3{
+		margin-top: 0%;
+		color: #8a8a90;
+		float:none;
+	}
     .countdown {
-        display: table-cell;
+        display: inline;
         font-weight: normal;
     }
     .countdown .item {
@@ -1021,8 +1030,8 @@ p.animated {
         position: relative;
         font-family: 'Open Sans', cursive;
         font-weight: 500;
-        font-size: 20px;
-        line-height: 50px;
+        font-size: 40px;
+        line-height: 70px;
         text-align: center;
         color: #B7B7B7;
         border-radius: 10px;
