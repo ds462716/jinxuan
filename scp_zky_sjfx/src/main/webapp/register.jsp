@@ -25,7 +25,8 @@
 
 	<!-- Custom styles for this template -->
 	<link href="<%=path%>/static/css/font-awesome.min.css" rel="stylesheet">
-
+	<script src="<%=path%>/static/js/jquery-1.11.1.min.js"></script>
+	<script src="<%=path%>/static/js/bootstrap.min.js"></script>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -201,8 +202,7 @@
 <c:if test="${not empty register}">
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
 </c:if>
-<script src="<%=path%>/static/js/jquery-1.11.1.min.js"></script>
-<script src="<%=path%>/static/js/bootstrap.min.js"></script>
+
 <!-- bootstrap日期控件 -->
 <script src="<%=path%>/res/js/bootstrap-datetimepicker.min.js"></script>
 <!-- 格式化输入 -->
