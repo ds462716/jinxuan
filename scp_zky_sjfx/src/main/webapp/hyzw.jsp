@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8" language="java"%>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -10,10 +10,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="viewport"
+	      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 	<title>首届“数据分析与知识发现”学术研讨会</title>
 	<link rel="stylesheet" type="text/css" href="<%=path%>/static/spkx/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<%=path%>/static/spkx/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<%=path%>/static/spkx/css/style.css"/>
 
 	<link href="<%=path%>/static/css/font-awesome.min.css" rel="stylesheet">
 	<!--    <script src="js/jquery.js" type="text/javascript"></script>-->
@@ -60,10 +61,10 @@
 </c:if>
 <script src="<%=path%>/static/spkx/js/biz.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(function () {
 		var hash = '${param["position"]}';
-		if(hash){
-			var target = $('#'+hash);
+		if (hash) {
+			var target = $('#' + hash);
 			if ($(window).width() < 768) {
 				if (target.length) {
 					$('html,body').animate({
