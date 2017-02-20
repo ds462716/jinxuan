@@ -46,7 +46,7 @@
 						<h2 class="sectionTitle">
 							${not empty register?'个人中心':'会议注册'}
 						</h2>
-						<p class="animated">注册会员即可享受会议报名、上传论文等各项会议服务.</p>
+						<p class="animated">请在下方表单中，完善您的个人信息.</p>
 
 
 						<%--<h2 class="sectionTitle">
