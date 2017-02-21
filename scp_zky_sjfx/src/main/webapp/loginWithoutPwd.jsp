@@ -46,6 +46,7 @@
 					<div class="row">
 						<form id="loginForm">
 						<div class="col-sm-8 col-sm-offset-2">
+							<div class="alert alert-info">为保证账户安全，已设置个人密码会员，请切换到邮箱及密码登录页。<a href="login.jsp">点此切换</a></div>
 							<div class="inputContainer">
 							<label class="screen-reader-text">手机号：</label>
 								<input type="text" name="telphone" id="telphone" value="" class="form-control" autocomplete="off"  placeholder="请输入报名时预留手机号" />

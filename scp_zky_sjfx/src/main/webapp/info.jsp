@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-sm-3">
 					<br/>
-					<a class="btn btn-success btn-lg" href="login.jsp">登　录</a><br/><br/>（已经注册代表请使用邮箱和密码登录）
+					<a class="btn btn-success btn-lg" href="login.jsp?position=contactWrap">登　录</a><br/><br/>（已经注册代表请使用邮箱和密码登录）
 				</div>
 			</div>
 		</div>

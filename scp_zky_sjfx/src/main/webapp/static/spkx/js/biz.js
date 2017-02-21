@@ -7,7 +7,7 @@ $(function(){
 	//跳转登录页面
 	$('.btn-login').off('click').on('click',function(e){
 		// window.location.href = 'loginWithoutPwd.jsp?position=contactWrap';
-		window.location.href = 'login.jsp';
+		window.location.href = 'login.jsp?position=contactWrap';
 	});
 
 	$('.btn-logout').off('click').on('click',function(e){
@@ -15,7 +15,7 @@ $(function(){
 			return;
 		RegisterService.logout(function(){
 			// window.location.reload();
-			window.location.href = 'login.jsp';
+			window.location.href = 'login.jsp?position=contactWrap';
 			// window.location.href = 'loginWithoutPwd.jsp?position=contactWrap';
 		});
 	});
