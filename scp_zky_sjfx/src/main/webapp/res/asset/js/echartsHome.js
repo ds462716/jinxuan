@@ -95,7 +95,7 @@ $('#head')[0].innerHTML =
             + '<li class="dropdown ' + (activeClass.auth || '') + '">'
               + '<a href="#" class="dropdown-toggle" data-toggle="dropdown">' + (enVersion ? 'Download' : '管理') + '<b class="caret"></b></a>'
               + '<ul class="dropdown-menu">'
-                + '<li><a href="./auth.do?method=register"> 会员管理</a></li>'
+                + '<li><a href="./auth.do?method=register"> 会员及缴费管理</a></li>'
                 + '<li><a href="./auth.do?method=email"> Email管理</a></li>'
                 + '<li><a href="./auth.do?method=resource"> 资料管理</a></li>'
                 // + '<li><a href="./auth.do?method=order"> 订单管理</a></li>'

@@ -12,6 +12,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport"
 	      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<link rel="shortcut icon" href="<%=path%>/static/assets/ico/favicon.ico">
 	<title>首届“数据分析与知识发现”学术研讨会</title>
 	<link rel="stylesheet" type="text/css" href="<%=path%>/static/spkx/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<%=path%>/static/spkx/css/style.css"/>

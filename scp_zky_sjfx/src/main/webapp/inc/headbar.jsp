@@ -101,6 +101,7 @@
 					<li><a href="bmfs.jsp">报名方式</a></li>
 					<li><a href="hwz.jsp">会务组</a></li>
 					<li><a href="download.jsp">资料下载</a></li>
+					<c:if test="${not empty register}"><li><a href="<%=path%>/auth.do?method=resetPwd&regid=${register.id}">修改密码</a></li></c:if>
 					<div class="clear"></div>
 				</ul>
 			</div>
