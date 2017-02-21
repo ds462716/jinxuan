@@ -63,7 +63,7 @@
 					</div>
 
 					<div class="col-sm-8 col-sm-offset-2">
-						<a href="loginWithoutPwd.jsp">已报名但未设置密码会员登录入口</a>
+						<%--<a href="loginWithoutPwd.jsp">已报名但未设置密码会员登录入口</a>--%>
 						<a class="pull-right" href="forgotPwd.jsp">忘记密码？</a>
 						<button name="submit" type="button" class="btn btn-primary btn-lg btn-loginsubmit">登录</button>
 					</div>

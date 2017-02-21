@@ -144,7 +144,7 @@
 							       value="${register.zsyq}" class="form-control" autocomplete="off" />
 						</div>
 					</div>
-					</c:if>
+
 
 					<%--<c:if test="${not empty thesis}">--%>
 					<div class="col-sm-8 col-sm-offset-2" >
@@ -152,15 +152,15 @@
 							<label class="screen-reader-text">缴费凭据：</label>
 							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'} />
 							<%--<a id="fileName" class="form-control " href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a><span class="input-group-addon" >重新上传</span>--%>
-							<div class="input-group" id="fileName">
-								<a  class="form-control " href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a>
-								<%--<input name="totalMoney" type="text" placeholder="请填写金额..." class="form-control">--%>
-								<span class="input-group-addon " id="btn-clear" >重新上传</span>
+							<div class="" id="fileName" ${not empty thesis?'style="display: inline"':'style="display: none"'}>
+								<a  class="form-control "  href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" >${thesis.filename}.${thesis.type}</a>
+								<span class="btn btn-default" style=" width: 20% ;float: right ;margin-top: -46px" id="btn-clear" >重新上传</span>
 							</div>
 
 						<%--<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>--%>
 						</div>
 					</div>
+					</c:if>
 					<%--</c:if>--%>
 					<%--<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">

@@ -280,7 +280,7 @@ public class RegisterService {
 	}
 	
 	public List getRegisters(){
-		return db.queryForList("select * from t_register");
+		return db.queryForList("select reg.*,th.id as tid from t_register reg left join t_thesis th on (th.registerid = reg.id )  order by reg.id ");
 	}
 	
 	public boolean deleteRegister(String id){
@@ -289,6 +289,10 @@ public class RegisterService {
 	
 	public boolean updateRegisterStatus(String id,String status){
 		return db.execute("update t_register set status = ? where id = ? ", new Object[]{status,id});
+	}
+	//更改支付状态
+	public boolean confirmPayment(String id,String flag){
+		return db.execute("update t_register set zfflag = ? where id = ? ", new Object[]{flag,id});
 	}
 
 

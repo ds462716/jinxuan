@@ -226,7 +226,8 @@ public class DBUtil {
 			while(rs.next()){
 				Map m = new HashMap();
 				for(int i=1,len=rsmd.getColumnCount();i<=len;i++){
-					String cname = rsmd.getColumnName(i);
+//					String cname = rsmd.getColumnName(i);
+					String cname = rsmd.getColumnLabel(i);//getColumnLabel 解决列名重复起别名问题
 					m.put(cname, rs.getString(cname));
 				}
 				list.add(m);
