@@ -1,6 +1,5 @@
 package com.meeting.core.service;
 
-import com.meeting.core.bean.Email;
 import com.meeting.core.bean.Notice;
 import com.meeting.core.db.DBUtil;
 import com.meeting.core.exception.SystemException;
