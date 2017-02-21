@@ -113,14 +113,14 @@
 					<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">
 							<label class="screen-reader-text">职称/职务：</label>
-							<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"
+							<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="请输入职称/职务"
 							       value="${register.job}"  />
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="inputContainer">
 							<label class="screen-reader-text">单位：</label>
-							<input type="text" name="company" id="company" placeholder="非必填"
+							<input type="text" name="company" id="company" placeholder="请输入单位"
 							       value="${register.company}" class="form-control" autocomplete="off" />
 						</div>
 					</div>
