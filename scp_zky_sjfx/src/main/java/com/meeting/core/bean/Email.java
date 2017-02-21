@@ -6,15 +6,19 @@ public class Email {
 	private String title;
 	private String content;
 	private String contentHtml;
+	private int status;
+	private String type;
 
 	public Email() {
 	}
 
-	public Email(int id, String title, String content, String contentHtml) {
+	public Email(int id, String title, String content, String contentHtml, int status, String type) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.contentHtml = contentHtml;
+		this.status = status;
+		this.type = type;
 	}
 
 	public int getId() {
@@ -23,6 +27,22 @@ public class Email {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getTitle() {
@@ -56,6 +76,8 @@ public class Email {
 				", title='" + title + '\'' +
 				", content='" + content + '\'' +
 				", contentHtml='" + contentHtml + '\'' +
+				", status=" + status +
+				", type=" + type +
 				'}';
 	}
 }

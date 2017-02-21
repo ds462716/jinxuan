@@ -20,7 +20,7 @@
 			<div class="col-md-12">
 				<ol class="breadcrumb">
 				  <li><a href="#">管理</a></li>
-				  <li><a href="#">会员管理</a></li>
+				  <li><a href="#">会员及缴费管理</a></li>
 				</ol>
 			</div>
 		</div>
@@ -39,6 +39,7 @@
 							<!-- <th>报名状态</th> -->
 							<th>备注</th>
 							<th>缴费单据</th>
+							<th>缴费状态</th>
 							<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="重新加载表格数据"></a></th>
 						</tr>
 					</thead>
@@ -90,7 +91,8 @@
 					+'<td>'+item.company+' | '+item.job+'</td>'
 					// +'<td>'+(item.bmflag==1?'<span class="label label-danger">已报名</span>':'<span class="label">未报名</span>')+'</td>'
 					+'<td width="200">'+item.message+'</td>'
-					+"<td width=200>"+getfiles(item.tid,item.id,item.zfflag)+"</td>"
+					+"<td >"+getfiles(item.tid,item.id,item.zfflag)+"</td>"
+					+(!item.tid?"<td></td>":"<td align='center' width='100' ><label  class='toggle"+(item.zfflag!=0?'':'  toggle-off') +"' title='已缴/未交'><input type='checkbox' onclick='confirmPayment(this,"+item.id*1+")' class='visi-hidden'></label></td>")
 					+'<td align="center" width="100"><label class="toggle'
 					+(item.status!=1?'':'  toggle-off')
 					+'" title="启用/禁用"><input type="checkbox" onclick="updateRegisterStatus(this,'+item.id*1+')" class="visi-hidden"></label></td></tr>');
@@ -100,20 +102,26 @@
 	}
 	function getfiles(tid,id,zfflag){
 		if(tid){
-			if(zfflag==1){
-				return "<a  style='color:#F00' href='<%=path%>/auth.do?method=download&fileid="+tid+"'>查看凭据</a> <button class='btn btn-warning  btn-xs' onclick='confirmPayment("+id*1+",0)'>取消确认</button>";
-			}else{
-				return "<a  style='color:#F00' href='<%=path%>/auth.do?method=download&fileid="+tid+"'>查看凭据</a> <button class='btn btn-primary  btn-xs' onclick='confirmPayment("+id*1+",1)'>确认缴费</button>";
-			}
+			return "<a  style='color:#F00' href='<%=path%>/auth.do?method=download&fileid="+tid+"'>查看凭据</a>";
 		}else{
 			return "没有上传";
 		}
 	}
 	//更改支付状态
-	function confirmPayment(id,flag){
-
-		RegisterService.confirmPayment(id,flag,function(msg){
-			loadRegisters();
+	function confirmPayment(_self,registerid){
+		var that = $(_self);
+		var checked = !that.parent().hasClass('toggle-off');
+		if(checked){
+			that.prop('checked','checked');
+			that.parent().removeClass('toggle');
+			that.parent().addClass('toggle toggle-off');
+		} else {
+			that.removeProp('checked');
+			that.parent().removeClass('toggle toggle-off');
+			that.parent().addClass('toggle');
+		}
+		RegisterService.confirmPayment(registerid,checked?0:1,function(msg){
+//			loadRegisters();
 		});
 	}
 	function updateRegisterStatus(_self,registerid){
@@ -121,11 +129,11 @@
 		var checked = !that.parent().hasClass('toggle-off');
 		if(checked){
 			that.prop('checked','checked');
-			that.parent().removeClass('toggle')
+			that.parent().removeClass('toggle');
 			that.parent().addClass('toggle toggle-off');
 		} else {
 			that.removeProp('checked');
-			that.parent().removeClass('toggle toggle-off')
+			that.parent().removeClass('toggle toggle-off');
 			that.parent().addClass('toggle');
 		}
 		RegisterService.updateRegisterStatus(registerid,checked?1:0,function(msg){

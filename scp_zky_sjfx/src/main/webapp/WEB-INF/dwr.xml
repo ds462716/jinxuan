@@ -19,9 +19,17 @@
 		<create creator="new" javascript="ResourceService">
 	      <param name="class" value="com.meeting.core.service.ResourceService"/>
 	    </create>
+		<create creator="new" javascript="NoticeService">
+	      <param name="class" value="com.meeting.core.service.NoticeService"/>
+	    </create>
+		<create creator="new" javascript="MailSetService">
+			<param name="class" value="com.meeting.core.service.MailsetService"/>
+		</create>
 
 		<convert converter="bean" match="com.meeting.core.bean.Resources"/>
 		<convert converter="bean" match="com.meeting.core.bean.Email"/>
+		<convert converter="bean" match="com.meeting.core.bean.Notice"/>
+		<convert converter="bean" match="com.meeting.core.bean.Mailset"/>
 		<convert converter="bean" match="com.meeting.core.bean.User"/>
 		<convert converter="bean" match="com.meeting.core.bean.Role"/>
 		<convert converter="bean" match="com.meeting.core.bean.Func"/>

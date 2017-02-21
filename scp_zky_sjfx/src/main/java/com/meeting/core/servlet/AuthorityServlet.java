@@ -154,7 +154,7 @@ public class AuthorityServlet extends BaseServlet {
 		return "sysset/bcorder.jsp";
 	}
 	/**
-	 * 跳转到Email管理
+	 * 跳转到邮件管理
 	 * @param req
 	 * @param resp
 	 * @return
@@ -163,6 +163,25 @@ public class AuthorityServlet extends BaseServlet {
 		return "sysset/email.jsp";
 	}
 	
+	/**
+	 * 跳转到通知管理
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	public String notice(HttpServletRequest req , HttpServletResponse resp){
+		return "sysset/notice.jsp";
+	}
+	/**
+	 * 跳转到公务邮箱管理
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	public String mailSet(HttpServletRequest req , HttpServletResponse resp){
+		return "sysset/mailSet.jsp";
+	}
+
 	/**
 	 * 跳转到后台资料管理
 	 * @param req

@@ -23,8 +23,8 @@ public class EmailService {
 	}
 
 	public boolean addEmail(Email email){
-		String sql = "insert into t_emails(title,content,contentHtml) values(?,?,?)";
-		return db.execute(sql, new Object[]{email.getTitle(),email.getContent(),email.getContentHtml()});
+		String sql = "insert into t_emails(title,content,contentHtml,type) values(?,?,?,?)";
+		return db.execute(sql, new Object[]{email.getTitle(),email.getContent(),email.getContentHtml(),email.getType()});
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -38,7 +38,11 @@ public class EmailService {
 		String sql = "select * from t_emails where id=?";
 		return db.queryOne(sql, new Object[]{emailid});
 	}
-	
+
+	public boolean updateEmailStatus(String id,String status){
+		return db.execute("update t_emails set status = ? where id = ? ", new Object[]{status,id});
+	}
+
 	public boolean updateEmail(Email email){
 		try {
 			logger.info(email);
