@@ -137,19 +137,8 @@
 		</div>
 	</div>
 </div>
-<div class="main">
-	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>
-		<a href="#">倒计时</a></h2>
-	<div class="row djs">
-		<div class="col-md-4 column col-xs-12">
-			<h3>距离大会开幕还有</h3>
-		</div>
-		<div class="col-md-8 column col-xs-12">
-			<time>2017-06-08T09:00:00+0100</time>
-		</div>
-	</div>
-</div>
-<div class="main_bg">
+
+
 	<div class="main">
 		<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 				href="#">会议征稿</a></h2>
@@ -166,7 +155,7 @@
 			<p>邀请学科专家组成论文评审委员会，对论文进行同行评议。录用论文将择期在《数据分析与知识发现》期刊中正式公开发表，免收发表费。</p>
 		</div>
 	</div>
-</div>
+
 <div class="main_bg">
 	<div class="main">
 		<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a href="#">时间&地点</a>
@@ -274,7 +263,7 @@
 <c:if test="${not empty register}">
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
 </c:if>
-<script src="<%=path%>/static/js/jquery.countdown.js"></script>
+
 <script src="<%=path%>/static/spkx/js/biz.js"></script>
 <script type="text/javascript">
 	$(function () {
@@ -296,10 +285,7 @@
 				}
 			}
 		}
-		//注册倒计时插件
-		$('time').countDown({
-			with_separators: false
-		});
+
 	});
 </script>
 </body>
