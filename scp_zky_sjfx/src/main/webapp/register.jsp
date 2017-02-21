@@ -145,14 +145,23 @@
 						</div>
 					</div>
 					</c:if>
-					<c:if test="${not empty thesis}">
+
+					<%--<c:if test="${not empty thesis}">--%>
 					<div class="col-sm-8 col-sm-offset-2" >
 						<div class="inputContainer">
 							<label class="screen-reader-text">缴费凭据：</label>
-							<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>
+							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'} />
+							<%--<a id="fileName" class="form-control " href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a><span class="input-group-addon" >重新上传</span>--%>
+							<div class="input-group" id="fileName">
+								<a  class="form-control " href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a>
+								<%--<input name="totalMoney" type="text" placeholder="请填写金额..." class="form-control">--%>
+								<span class="input-group-addon " id="btn-clear" >重新上传</span>
+							</div>
+
+						<%--<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>--%>
 						</div>
 					</div>
-					</c:if>
+					<%--</c:if>--%>
 					<%--<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">
 							<label class="screen-reader-text">是否报告：</label>
@@ -232,6 +241,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
+<script type="text/javascript" src="<%=path%>/dwr/util.js"></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/RegisterService.js'></script>
 <c:if test="${not empty register}">
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
@@ -245,6 +255,15 @@
 <script src="<%=path%>/static/spkx/js/biz.js"></script>
 
 <script type="text/javascript">
+	$("#btn-clear").click(function () {
+		$("#fileName").attr('style','display: none');
+		$("#file").attr('style','display: inline');
+
+		var file = $("#file")
+		file.after(file.clone().val(""));
+		file.remove();
+		file.val('');
+	});
 	function not_pc() {
 		var os = new Array("Android", "iPhone", "Windows Phone", "iPod", "BlackBerry", "MeeGo", "SymbianOS");  // 其他类型的移动操作系统类型，自行添加
 		var info = navigator.userAgent;
@@ -617,7 +636,9 @@
 			$("#editBtn").prop('disabled', true);
 			//注册：参数说明register为注册信息,isSendMail表示是否发送邮件
 			var isSendMail = false;
-			RegisterService.register(register, isSendMail, function (msg) {
+			var files = dwr.util.getValue("file");//这是dwr包提供的util.js文件里面的方法
+			var fileName =  $("#file").val();
+			RegisterService.register(register, isSendMail,files,fileName, function (msg) {
 				if (msg) {
 					alert('修改成功!');
 					$(that).removeClass('disabled');

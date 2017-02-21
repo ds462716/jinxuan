@@ -108,7 +108,30 @@ public class RegisterService {
 			WebContext ctx = WebContextFactory.get();
 			Map sreg = db.queryOne("select * from t_register where email = ? ", new Object[]{reg.getEmail()});
 			ctx.getSession().setAttribute("register", sreg);
+
 			//文件上传
+			if(file!=null&&fileName!=null&&!"".equals(fileName)){
+				Thesis thesis = new Thesis();
+				thesis.setRegisterid(sreg.get("id").toString());
+				thesis.setRegisteremail(sreg.get("email").toString());
+				thesis.setUploadtime(new Date());
+				thesis.setComments("");
+				int index = fileName.lastIndexOf(".");
+				thesis.setFilename(fileName.substring(fileName.lastIndexOf("\\")+1,index));
+				thesis.setType(fileName.substring(index+1));
+
+				if(ctx.getSession().getAttribute("thesis")!=null){
+					Map lm = (Map)ctx.getSession().getAttribute("thesis");
+					thesis.setId(Integer.parseInt(lm.get("id").toString()));
+				}
+				if(thesis.getId() == 0){
+					insertThesis(thesis,file);
+				} else {
+					updateThesis(thesis,file);
+				}
+				ctx.getSession().setAttribute("thesis", this.getThesisByRegisterId(sreg.get("id").toString()));
+			}
+
 			/*if(file!=null&&fileName!=null){
 				Thesis thesis = new Thesis();
 				thesis.setRegisterid(sreg.get("id").toString());
