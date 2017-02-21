@@ -58,7 +58,7 @@
             <h3 class="text-center">帐号登录</h3>
       <ul class="unstyled">
         <li class="clearfix">
-          <label class="ct-login-form-label" for="username" style="display: block;">请输入您用户名称</label>
+          <label class="ct-login-form-label" for="username" style="display: block;">请输入您邮箱名称</label>
           <input type="text" tabindex="1" class="text" name="username" id="username" autocomplete="off" value="${user.name}">
         </li>
         <li class="clearfix">

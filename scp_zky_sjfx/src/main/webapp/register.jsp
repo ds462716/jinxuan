@@ -54,35 +54,35 @@
 						</h2>--%>
 					</div>
 				</div>
+				<input type="text" name="id" id="id" class="hide"  value="${register.id}">
 				<div class="row">
 					<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">
-							<label>用户名：</label>
+							<label>邮箱：</label>
 							<input type="text" name="email" id="email" class="form-control" autocomplete="off" placeholder="请输入邮箱地址"
 							       value="${register.email}" ${not empty register?'disabled="disabled"':''}>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="inputContainer">
-							<label class="screen-reader-text">联系电话：</label>
+							<label class="screen-reader-text" >联系电话：</label>
 							<input type="text" name="telphone" id="telphone" placeholder="手机 / 固话"
 							       value="${register.telphone}" class="form-control"
-							       autocomplete="off" ${not empty register?'disabled="disabled"':''}/>
+							       autocomplete="off" />
 						</div>
 
-
 					</div>
-					<div class="col-sm-4 col-sm-offset-2 register-adv" style="${empty register?'':'display:none'}">
+					<div class="col-sm-4 col-sm-offset-2 register-adv">
 						<div class="inputContainer">
 							<label class="screen-reader-text">会员密码：</label>
-							<input type="password" name="password" id="password" value="" class="form-control" placeholder="请输入密码"
+							<input type="password" name="password" id="password" value="" class="form-control" placeholder="${empty register?'请输入密码':'如要修改请输入,否则请留空'}"
 							       autocomplete="off"/>
 						</div>
 					</div>
-					<div class="col-sm-4 register-adv" style="${empty register?'':'display:none'}">
+					<div class="col-sm-4 register-adv" >
 						<div class="inputContainer">
 							<label class="screen-reader-text">确认密码：</label>
-							<input type="password" name="repassword" id="repassword" value="" class="form-control" placeholder="请输入确认密码"
+							<input type="password" name="repassword" id="repassword" value="" class="form-control" placeholder="${empty register?'请输入确认密码':'如要修改请输入,否则请留空'}"
 							       autocomplete="off"/>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 						<div class="inputContainer">
 							<label class="screen-reader-text">姓名：</label>
 							<input type="text" name="nickname" id="nickname"  class="form-control" autocomplete="off"
-							       value="${register.nickname}" ${not empty register?'disabled="disabled"':''} placeholder="真实姓名 / 昵称"/>
+							       value="${register.nickname}"  placeholder="真实姓名 / 昵称"/>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -99,12 +99,12 @@
 							<div class="form-control" style="line-height:20px;">
 								<label class="radio-inline">
 									<input type="radio" name="sex" id="sex1"
-									       value="男" ${register.sex eq '男' or empty regisgter?'checked':''} ${not empty register?'disabled="disabled"':''}>
+									       value="男" ${register.sex eq '男' or empty regisgter?'checked':''} >
 									男
 								</label>
 								<label class="radio-inline">
 									<input type="radio" name="sex" id="sex2"
-									       value="女" ${register.sex eq '女'?'checked':''} ${not empty register?'disabled="disabled"':''}>
+									       value="女" ${register.sex eq '女'?'checked':''} >
 									女
 								</label>
 							</div>
@@ -114,16 +114,45 @@
 						<div class="inputContainer">
 							<label class="screen-reader-text">职称/职务：</label>
 							<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"
-							       value="${register.job}" ${not empty register?'disabled="disabled"':''} />
+							       value="${register.job}"  />
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="inputContainer">
 							<label class="screen-reader-text">单位：</label>
 							<input type="text" name="company" id="company" placeholder="非必填"
-							       value="${register.company}" class="form-control" autocomplete="off" ${not empty register?'disabled="disabled"':''}/>
+							       value="${register.company}" class="form-control" autocomplete="off" />
 						</div>
 					</div>
+					<c:if test="${not empty register}">
+					<div class="col-sm-4 col-sm-offset-2">
+						<div class="inputContainer">
+							<label class="screen-reader-text">代表性质：</label>
+							<select id="usertype" class="form-control input-sm" name="usertype">
+								<option value="普通代表" ${not empty register and register.usertype eq '普通代表'?'selected="selected"':''}>普通代表</option>
+								<option value="在校学生" ${not empty register and register.usertype eq '在校学生'?'selected="selected"':''}>在校学生</option>
+								<option value="征文作者" ${not empty register and register.usertype eq '征文作者'?'selected="selected"':''}>征文作者</option>
+							</select>
+							<%--<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"--%>
+							       <%--value="${register.job}"  />--%>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="inputContainer">
+							<label class="screen-reader-text">住宿要求：</label>
+							<input type="text" name="zsyq" id="zsyq" placeholder="住宿要求"
+							       value="${register.zsyq}" class="form-control" autocomplete="off" />
+						</div>
+					</div>
+					</c:if>
+					<c:if test="${not empty thesis}">
+					<div class="col-sm-8 col-sm-offset-2" >
+						<div class="inputContainer">
+							<label class="screen-reader-text">缴费凭据：</label>
+							<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>
+						</div>
+					</div>
+					</c:if>
 					<%--<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">
 							<label class="screen-reader-text">是否报告：</label>
@@ -170,9 +199,14 @@
 						</div>
 					</div>--%>
 					<div class="col-sm-8 col-sm-offset-2">
-						<c:if test="${empty register}">
-						<button id="registerBtn" name="submit" type="button" class="btn btn-primary btn-lg">马上注册</button>
-						</c:if>
+						<c:choose>
+							<c:when  test="${empty register}">
+							<button id="registerBtn" name="submit" type="button" class="btn btn-primary btn-lg">马上注册</button>
+							</c:when >
+							<c:otherwise>
+								<button id="editBtn" name="submit" type="button" class="btn btn-primary btn-lg">确定修改</button>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -335,6 +369,7 @@
 			return v || '不需要';
 		}
 
+		//注册按钮
 		$('#registerBtn').off('click').on('click', function (e) {
 
 			var that = this;
@@ -466,6 +501,131 @@
 					$("#registerBtn").prop('disabled', false);
 					$('#telphone').focus();
 					$(that).removeClass('disabled');
+				}
+			});
+		});
+		//修改按钮
+		$('#editBtn').off('click').on('click', function (e) {
+			var that = this;
+			var register = {
+				id: $('#id').val(),
+				nickname: $('#nickname').val(),
+				password: $('#password').val() ,
+				sex: $('input[name="sex"]:checked').val(),
+				job: $('#job').val(),
+				title: $('#title').val(),
+				company: $('#company').val(),
+				officephone: $('#officephone').val(),
+				telphone: $('#telphone').val(),
+				email: $('#email').val(),
+				address: $('#address').val(),
+				postcode: $('#postcode').val(),
+				sfztlw: $('input[name="sfztlw"]:checked').val(),
+				sfsqhyfy: $('input[name="sfsqhyfy"]:checked').val(),
+				sffblw: $('input[name="sffblw"]:checked').val(),
+				gjbh: $('#gjbh').val(),
+				journalname: $('#journalname').val(),//稿件期刊
+				gjtm: $('#gjtm').val(),//论文题目
+				zsyq: $('#zsyq').val(),
+				usertype: $('#usertype').val(),
+				zskssj: $('#zskssj').val(),
+				zsjssj: $('#zsjssj').val(),
+
+				gzqk: '',
+				fax: '',
+				degree: '',
+				invoice: '',
+				sfcjsx: '',
+				sxxl: '',
+				fptt: '',
+				gjzt: '',
+				fytm: $('#fytm').val(),
+				fynrzy: $('#fynrzy').val(),
+				sfzs: '',
+				yqhfszt: '',
+				// invoice:getInvoiceValue(),
+				// sfcjsx:$('input[name="sfcjsx"]:checked').val(),
+				// sxxl:$('input[name="sfcjsx"]:checked').val() == '参加'?$('#sxxl').val():'',
+				// fptt:$('#fptt').val(),
+
+				message: $('#message').val()
+			};
+			if (!register.email) {
+				$('#email').focus().attr('placeholder', '该项不能为空！');
+				return;
+			}else {
+				if(!isEmail(register.email)){
+					alert("Email格式不正确");
+					$('#email').focus();
+					return;
+				}
+			}
+			if (!register.telphone) {
+				$('#telphone').focus().attr('placeholder', '该项不能为空！');
+				return;
+			}
+
+			/*//密码校验
+			if (!register.password) {
+				$('#password').focus().attr('placeholder', '密码不能为空！');
+				return;
+			}*/
+			if ((register.password) &&register.password != $('#repassword').val()) {
+				alert('两次输入密码不一致！');
+				$('#repassword').focus();
+				return;
+			}
+			if (!register.nickname) {
+				$('#nickname').focus().attr('placeholder', '该项不能为空！');
+				return;
+			}
+			/*if (!register.title) {
+			 $('#title').focus().attr('placeholder', '该项不能为空！');
+			 return;
+			 }
+			 if (!register.job) {
+			 $('#job').focus().attr('placeholder', '该项不能为空！');
+			 return;
+			 }
+
+
+			 if (!register.company) {
+			 $('#company').focus().attr('placeholder', '该项不能为空！');
+			 return;
+			 }
+			 if (!register.postcode) {
+			 $('#postcode').focus().attr('placeholder', '该项不能为空！');
+			 return;
+			 }
+			 if (!register.address) {
+			 $('#address').focus().attr('placeholder', '该项不能为空！');
+			 return;
+			 }
+
+			 if ($('input[name="invoice"]:checked').val() == '需要') {
+			 if (!$('input[name="invoice_chk"]:checked').val()) {
+			 alert('请选择开票内容！');
+			 return;
+			 }
+			 if (!register.fptt) {
+			 $('#fptt').focus().attr('placeholder', '请填写发票抬头！');
+			 return;
+			 }
+			 }*/
+
+			// $(that).addClass('disabled');
+			$("#editBtn").prop('disabled', true);
+			//注册：参数说明register为注册信息,isSendMail表示是否发送邮件
+			var isSendMail = false;
+			RegisterService.register(register, isSendMail, function (msg) {
+				if (msg) {
+					alert('修改成功!');
+					$(that).removeClass('disabled');
+//							$('#registerForm')[0].reset();
+					$("#editBtn").prop('disabled', false);
+					// if($('#isAutoLogin').prop('checked')){
+					window.location.reload();
+					// }
 				}
 			});
 		});

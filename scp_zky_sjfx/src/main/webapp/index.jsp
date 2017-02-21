@@ -30,8 +30,8 @@
 	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">会议介绍</a>
 	</h2>
-	<div class="hyjs row"><img src="<%=path%>/static/spkx/images/pic02.png" alt="" class="col-sm-5 col-xs-6"/>
-		<p class="col-sm-7 col-xs-12">
+	<div class="hyjs row">
+		<p class="col-sm-12 col-xs-12">
 			随着信息社会进入大数据时代，信息从供人阅读为主正逐步变化到供机器阅读为主，从检索利用为主逐步深化到挖掘、计算、分析及其可视化呈现，从支持人的理解和再创造为主逐步扩展到支持知识发现和智能决策，从支持少数信息专业人员进行挖掘、分析与发现为主逐步扩展到支持大众利用开放平台和开放工具进行按需动态挖掘、交互、再利用和再创造，从拘泥于信息机构的知识与方法逐步扩展到嵌入各种业务与管理流程的智能工具。在这种环境下，数据挖掘和知识分析成为复杂多变环境和海量信息环境下各行各业知识创新和应用决策的核心竞争力之一，也是数据科学、计算机科学、情报科学、管理科学等多个学科最近及将来研究与应用的重要热点。<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次“数据分析与知识发现”学术会议和培训班将邀请国内外从事相关研究的知名专家，聚焦大数据驱动的数据挖掘、语义计算、内容分析、知识发现、智能决策等方面的技术、方法、系统及机制研究。欢迎从事相关研究和实践工作的人员踊跃报名。
 		</p>
@@ -44,7 +44,7 @@
 				href="#">会议内容</a></h2>
 		<div class="hynr">
 			<div class="left col-sm-8 col-xs-12">
-				<h3>会议主题</h3>
+				<h3>会议主题：数据分析与知识发现</h3>
 				<p>1） 基于数据挖掘的社会计算和社会感知的新方法新技术</p>
 				<%--<p>包括碳水化合物、蛋白质和酶、脂类、核酸、维生素、矿物质、植物化学物等生化与代谢研究，基因工程、细胞工程、酶工程、基因组学、蛋白质组学和代谢组学等与人类健康相关的基础研究。</p>--%>
 				<p class="bs">2） 基于内容分析的舆情监测、竞争分析、产业竞争力分析的新方法新技术</p>
@@ -134,24 +134,37 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-
 		</div>
 	</div>
 </div>
 <div class="main">
-	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
-			href="#">会议征稿</a></h2>
-	<div class="hylw">
-		<h4>征文要求</h4>
-		<p>本次大会征文主题见会议主题范围，具体要求：
-			<br>（1）研究问题明确、具体，论点明确；未公开发表。
-			<br>（2）层次清晰，结构严谨，文笔精炼，6000-8000字为宜。
-			<br>（3）严格遵守期刊学术规范和格式要求。请参照《数据分析与知识发现》网站“作者指南”
-			<br>中系列规范。
-			<br>（4）通过本刊官方网站（<a href="http://www.infotech.ac.cn" target="_blank">http://www.infotech.ac.cn</a>）提交论文。论文投稿时文题前请标识
-			“学术会议”，如：“学术会议：数据驱动的知识发现”。投稿截止时间为2016年5月30日。
-		<h4>出版事宜</h4>
-		<p>邀请学科专家组成论文评审委员会，对论文进行同行评议。录用论文将择期在《数据分析与知识发现》期刊中正式公开发表，免收发表费。</p>
+	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>
+		<a href="#">倒计时</a></h2>
+	<div class="row djs">
+		<div class="col-md-4 column col-xs-12">
+			<h3>距离大会开幕还有</h3>
+		</div>
+		<div class="col-md-8 column col-xs-12">
+			<time>2017-06-08T09:00:00+0100</time>
+		</div>
+	</div>
+</div>
+<div class="main_bg">
+	<div class="main">
+		<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
+				href="#">会议征稿</a></h2>
+		<div class="hylw">
+			<h4>征文要求</h4>
+			<p>本次大会征文主题见会议主题范围，具体要求：
+				<br>（1）研究问题明确、具体，论点明确；未公开发表。
+				<br>（2）层次清晰，结构严谨，文笔精炼，6000-8000字为宜。
+				<br>（3）严格遵守期刊学术规范和格式要求。请参照《数据分析与知识发现》网站“作者指南”
+				<br>中系列规范。
+				<br>（4）通过本刊官方网站（<a href="http://www.infotech.ac.cn" target="_blank">http://www.infotech.ac.cn</a>）提交论文。论文投稿时文题前请标识
+				“学术会议”，如：“学术会议：数据驱动的知识发现”。投稿截止时间为2016年5月30日。
+			<h4>出版事宜</h4>
+			<p>邀请学科专家组成论文评审委员会，对论文进行同行评议。录用论文将择期在《数据分析与知识发现》期刊中正式公开发表，免收发表费。</p>
+		</div>
 	</div>
 </div>
 <div class="main_bg">
@@ -261,6 +274,7 @@
 <c:if test="${not empty register}">
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
 </c:if>
+<script src="<%=path%>/static/js/jquery.countdown.js"></script>
 <script src="<%=path%>/static/spkx/js/biz.js"></script>
 <script type="text/javascript">
 	$(function () {
@@ -282,6 +296,10 @@
 				}
 			}
 		}
+		//注册倒计时插件
+		$('time').countDown({
+			with_separators: false
+		});
 	});
 </script>
 </body>
