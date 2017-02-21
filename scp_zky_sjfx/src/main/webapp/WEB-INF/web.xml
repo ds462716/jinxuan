@@ -36,6 +36,16 @@
 		<servlet-name>ReportServlet</servlet-name>
 		<url-pattern>/report.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>com.meeting.core.servlet.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/resource.do</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>DwrServlet</servlet-name>
 		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
