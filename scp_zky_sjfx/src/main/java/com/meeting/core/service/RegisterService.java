@@ -133,7 +133,22 @@ public class RegisterService {
 			
 			
 			if(isSendMail)
-				sendEmailToRegister(reg,"emailtemplate.html");
+				sendEmailToRegister(reg,null);
+		}
+		return success;
+	}
+	
+	public boolean sendEmailToRegister(String email) {
+		boolean success = false;
+		String sql = "select * from t_register where email = ? and status = 0 ";
+		Map m = db.queryOne(sql,new Object[]{email});
+		if(m!=null){
+			Register reg = new Register();
+			reg.setId(Integer.parseInt(m.get("id").toString()));
+			reg.setEmail(m.get("email").toString());
+			reg.setNickname(m.get("nickname").toString());
+			reg.setPassword(m.get("password").toString());
+			success = sendEmailToRegister(reg,"forgotpwdtemplate.html");
 		}
 		return success;
 	}
@@ -169,7 +184,8 @@ public class RegisterService {
         mailInfo.setSubject(email.get("title").toString());//会议主题
 		String mailMessage = email.get("contentHtml").toString();//会议内容
 		//使用模板发送邮件  需要时候打开
-//        String mailMessage = StringUtil.readFile2String(templateFile, this.getClass());
+		if(StringUtil.isNotEmpty(templateFile))
+			mailMessage = StringUtil.readFile2String(templateFile, this.getClass());
 
         mailMessage = mailMessage.replaceAll(":nickname", reg.getNickname()).replaceAll(":currentDate", new SimpleDateFormat("yyyy年MM月dd日").format(new Date()));
         mailMessage = mailMessage.replaceAll(":securityCode", reg.getId()+"");
@@ -282,6 +298,16 @@ public class RegisterService {
 			ctx.getSession().setAttribute("register", db.queryOne("select * from t_register where id = ? ", new Object[]{reg.getId()}));
 		}
 		return true;
+	}
+	
+	public Map getRegisterById(String id) {
+		String sql = "select * from t_register where id = ? ";
+		return db.queryOne(sql,new Object[]{id});
+	}
+	
+	public boolean updateRegisterPwd(String id , String password){
+		String sql = "update t_register set password = ? , status = 0 where id = ? ";
+		return db.execute(sql, new Object[]{StringUtil.MD5(password),id});
 	}
 
 	public static void main(String[] args) throws ParseException{

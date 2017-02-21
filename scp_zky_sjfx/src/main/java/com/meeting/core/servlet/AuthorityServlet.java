@@ -162,7 +162,23 @@ public class AuthorityServlet extends BaseServlet {
 	public String email(HttpServletRequest req , HttpServletResponse resp){
 		return "sysset/email.jsp";
 	}
+	
+	/**
+	 * 跳转到后台资料管理
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	public String resource(HttpServletRequest req , HttpServletResponse resp){
+		return "sysset/resource.jsp";
+	}
 
+	/**
+	 * 论文下载
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
 	public String download(HttpServletRequest req , HttpServletResponse resp){
 		String fileid = req.getParameter("fileid");
 		RegisterService service = new RegisterService();
@@ -190,5 +206,39 @@ public class AuthorityServlet extends BaseServlet {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public String forgotPwd(HttpServletRequest req , HttpServletResponse resp){
+		RegisterService service = new RegisterService();
+		String email = req.getParameter("email");
+		if(service.sendEmailToRegister(email)){
+			req.setAttribute("resetPwdEmail", email);
+			return "ctx:forgotPwdSuccess.jsp";
+		} else {
+			req.setAttribute("errormsg", "<b style='color:red;'>对不起，该邮箱注册用户不存在！</b><br/>");
+			return "ctx:forgotPwd.jsp";
+		}
+	}
+	
+	public String resetPwd(HttpServletRequest req , HttpServletResponse resp){
+		String registerid = req.getParameter("regid");
+		RegisterService service = new RegisterService();
+		Map register = service.getRegisterById(registerid);
+		req.setAttribute("regid", registerid);
+		req.setAttribute("regemail", register.get("email").toString());
+		return "ctx:resetPwd.jsp";
+	}
+	
+	public String resetPwdOK(HttpServletRequest req , HttpServletResponse resp){
+		String regid = req.getParameter("regid");
+		String regpwd = req.getParameter("regpwd");
+		
+		RegisterService service = new RegisterService();
+		if(service.updateRegisterPwd(regid,regpwd))
+			return "ctx:resetPwdSuccess.jsp";
+		else {
+			req.setAttribute("errormsg", "修改密码失败！");
+			return "ctx:resetPwd.jsp";
+		}
 	}
 }

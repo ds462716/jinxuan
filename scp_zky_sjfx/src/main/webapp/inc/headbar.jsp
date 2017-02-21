@@ -3,8 +3,17 @@
 <div class="topbox">
 	<div class="lang">
 		<c:if test="${not empty register}">
-			<button class="btn btn-default btn-showinfo">欢迎您，${register.nickname}</button>
-			<button class="btn btn-default btn-logout">安全退出</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" 
+						data-toggle="dropdown">欢迎您，${register.nickname} <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a class="btn-showinfo" href="javascript:;">个人信息</a></li>
+					<li><a href="<%=path%>/auth.do?method=resetPwd&regid=${register.id}">修改密码</a></li>
+					<li class="divider"></li>
+					<li><a class="btn-logout" href="javascript:;">安全退出</a></li>
+				</ul>
+			</div>
 		</c:if>
 		<c:if test="${empty register}">
 			<button class="btn btn-default btn-login">登录</button>
@@ -37,6 +46,7 @@
 			<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hwz.html">会务组</a></li>--%>
 			<li><a href="bmfs.jsp">报名方式</a></li>
 			<li><a href="hwz.jsp">会务组</a></li>
+			<li><a href="download.jsp">资料下载</a></li>
 			<div class="clear"></div>
 		</ul>
 		<%--<ul>
@@ -90,6 +100,7 @@
 					<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hwz.html">会务组</a></li>--%>
 					<li><a href="bmfs.jsp">报名方式</a></li>
 					<li><a href="hwz.jsp">会务组</a></li>
+					<li><a href="download.jsp">资料下载</a></li>
 					<div class="clear"></div>
 				</ul>
 			</div>
