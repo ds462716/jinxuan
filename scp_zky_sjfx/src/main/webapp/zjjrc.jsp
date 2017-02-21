@@ -57,7 +57,20 @@
 
 	</div>
 </div>
-
+<div class="main_bg">
+	<div class="main">
+		<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>
+			<a href="#">倒计时</a></h2>
+		<div class="row djs">
+			<div class="col-md-4 column col-xs-12">
+				<h3>距离大会开幕还有</h3>
+			</div>
+			<div class="col-md-8 column col-xs-12">
+				<time>2017-06-08T09:00:00+0100</time>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12 footer">Copyright © 2007-2017 中国科学院文献情报中心 All Reserved
@@ -76,6 +89,7 @@
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
 </c:if>
 <script src="<%=path%>/static/spkx/js/biz.js"></script>
+<script src="<%=path%>/static/js/jquery.countdown.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var hash = '${param["position"]}';
@@ -96,6 +110,10 @@
 				}
 			}
 		}
+		//注册倒计时插件
+		$('time').countDown({
+			with_separators: false
+		});
 	});
 </script>
 </body>

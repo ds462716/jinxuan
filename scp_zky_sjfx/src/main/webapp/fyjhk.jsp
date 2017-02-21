@@ -81,7 +81,7 @@
 		</p>
 	</div>
 </div>
-<div class="main_bg">
+<%--<div class="main_bg">
 	<div class="main">
 		<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>缴费凭据
 		</h2>
@@ -108,11 +108,8 @@
 				<div class="group">
 					<label class="col-sm-2 control-label">缴费凭据:</label>
 					<div class="col-sm-10">
-
-							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'}/>
-
-							<a id="fileName" class="form-control col-sm-10" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a>
-
+						<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'}/>
+						<a id="fileName" class="form-control col-sm-10" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a>
 					</div>
 				</div>
 			</div>
@@ -125,7 +122,7 @@
 
 		</div>
 	</div>
-</div>
+</div>--%>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12 footer">Copyright © 2007-2017 中国科学院文献情报中心 All Reserved
@@ -166,7 +163,7 @@
 				}
 			}
 		}
-		$("#btn-sendEmail").click(function () {
+		/*$("#btn-sendEmail").click(function () {
 			if(app.register.id){
 				var register = {
 					id:app.register.id,
@@ -189,16 +186,8 @@
 				alert("请先登录后再提交!");
 				window.location.href = 'login.jsp';
 			}
-		});
-		$("#btn-clear").click(function () {
-			$("#fileName").attr('style','display: none');
-			$("#file").attr('style','display: inline');
+		});*/
 
-			var file = $("#file")
-			file.after(file.clone().val(""));
-			file.remove();
-			file.val('');
-		});
 	});
 </script>
 </body>
