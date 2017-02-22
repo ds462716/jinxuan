@@ -1,5 +1,15 @@
 package com.meeting.core.service;
 
+import com.meeting.core.bean.Register;
+import com.meeting.core.bean.Thesis;
+import com.meeting.core.db.DBUtil;
+import com.meeting.core.email.MailInfo;
+import com.meeting.core.email.MailUtil;
+import com.meeting.core.util.StringUtil;
+import org.apache.commons.mail.EmailAttachment;
+import org.directwebremoting.WebContext;
+import org.directwebremoting.WebContextFactory;
+
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -8,18 +18,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.lang.time.DateUtils;
-import org.apache.commons.mail.EmailAttachment;
-import org.directwebremoting.WebContext;
-import org.directwebremoting.WebContextFactory;
-
-import com.meeting.core.bean.Register;
-import com.meeting.core.bean.Thesis;
-import com.meeting.core.db.DBUtil;
-import com.meeting.core.email.MailInfo;
-import com.meeting.core.email.MailUtil;
-import com.meeting.core.util.StringUtil;
 
 /**
  * 2016/9/14 22:14:29
@@ -156,7 +154,7 @@ public class RegisterService {
 			
 			
 			if(isSendMail)
-				sendEmailToRegister(reg,null);
+				sendEmailToRegister(reg,"注册","emailtemplate.html");
 		}
 		return success;
 	}
@@ -171,12 +169,12 @@ public class RegisterService {
 			reg.setEmail(m.get("email").toString());
 			reg.setNickname(m.get("nickname").toString());
 			reg.setPassword(m.get("password").toString());
-			success = sendEmailToRegister(reg,"forgotpwdtemplate.html");
+			success = sendEmailToRegister(reg,"重置密码","forgotpwdtemplate.html");
 		}
 		return success;
 	}
 	
-	public boolean sendEmailToRegister(Register reg , String templateFile){
+	public boolean sendEmailToRegister(Register reg , String flag,String templateFile){
 		Map ms = db.queryOne("select * from t_mailset where isactive = 1 ", null);
 		MailUtil.init(ms);
 		MailInfo mailInfo = new MailInfo();
@@ -202,18 +200,26 @@ public class RegisterService {
 //        mailInfo.setCcAddress(ccList);//抄送人
         mailInfo.setBccAddress(bccList);//密送人
 
-		Map email = db.queryOne("select * from t_emails where status = 1 order by id desc limit 1", null);
+		Map email = db.queryOne("select * from t_emails where status = 1 and flag='"+flag+"' order by id desc limit 1", null);
+		if(email.size()!=0){
+			mailInfo.setSubject(email.get("title").toString());//会议主题
+			String mailMessage = email.get("contentHtml").toString();//会议内容
+			if(StringUtil.isNotEmpty(templateFile))
+				mailMessage = StringUtil.readFile2String(templateFile, this.getClass());
+			mailMessage = mailMessage.replaceAll(":nickname", reg.getNickname()).replaceAll(":currentDate", new SimpleDateFormat("yyyy年MM月dd日").format(new Date()));
+			mailMessage = mailMessage.replaceAll(":securityCode", reg.getId()+"");
+			mailInfo.setContent(mailMessage);
+		}else{
+			mailInfo.setSubject(flag);//会议主题
+			String mailMessage = flag;//会议内容
+			if(StringUtil.isNotEmpty(templateFile))
+				mailMessage = StringUtil.readFile2String(templateFile, this.getClass());
+			mailMessage = mailMessage.replaceAll(":nickname", reg.getNickname()).replaceAll(":currentDate", new SimpleDateFormat("yyyy年MM月dd日").format(new Date()));
+			mailMessage = mailMessage.replaceAll(":securityCode", reg.getId()+"");
+			mailInfo.setContent(mailMessage);
+		}
 
-        mailInfo.setSubject(email.get("title").toString());//会议主题
-		String mailMessage = email.get("contentHtml").toString();//会议内容
-		//使用模板发送邮件  需要时候打开
-		if(StringUtil.isNotEmpty(templateFile))
-			mailMessage = StringUtil.readFile2String(templateFile, this.getClass());
-
-        mailMessage = mailMessage.replaceAll(":nickname", reg.getNickname()).replaceAll(":currentDate", new SimpleDateFormat("yyyy年MM月dd日").format(new Date()));
-        mailMessage = mailMessage.replaceAll(":securityCode", reg.getId()+"");
-        mailInfo.setContent(mailMessage);
-        MailUtil.sendEmail(mailInfo);
+		MailUtil.sendEmail(mailInfo);
 		return true;
 	}
 	
@@ -342,7 +348,7 @@ public class RegisterService {
 		Register reg = new Register();
 		reg.setEmail("462716@qq.com");
 		reg.setNickname("dbangel");
-		s.sendEmailToRegister(reg,"emailtemplate.html");
+		s.sendEmailToRegister(reg,"其他","emailtemplate.html");
 		
 //		System.out.println(DateUtils.parseDate("2016-12-27 18:00", new String[]{"yyyy-MM-dd HH:mm"}));
 	}

@@ -27,6 +27,12 @@
 <body>
 <!-- 头部模块 -->
 <%@include file="/inc/headbar.jsp" %>
+<%--头部通知滚动条--%>
+<div class="main alert alert-info">
+	<marquee behavior="scroll"  width="100%" direction="left" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">
+		首届“数据分析与知识发现”学术研讨会
+	</marquee>
+</div>
 <div class="main">
 	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">会议介绍</a>
@@ -261,6 +267,7 @@
 </div>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/RegisterService.js'></script>
+<script type='text/javascript' src='<%=path%>/dwr/interface/NoticeService.js'></script>
 <c:if test="${not empty register}">
 	<script type='text/javascript' src='<%=path%>/dwr/interface/OrderService.js'></script>
 </c:if>
@@ -286,7 +293,19 @@
 				}
 			}
 		}
-
+		//获取后台通知内容
+		NoticeService.getAllEnabledNotice(function (notices) {
+			$("marquee").html('');
+			var trs='';
+			$.each(notices, function (index, n) {
+				if(notices.length==1){
+					trs+=n.content;
+				}else{
+					trs+=(index+1)+'.'+n.content+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				}
+			});
+			$("marquee").append(trs);
+		});
 	});
 </script>
 </body>
