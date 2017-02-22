@@ -173,7 +173,7 @@ public class AuthorityServlet extends BaseServlet {
 		return "sysset/notice.jsp";
 	}
 	/**
-	 * 跳转到公务邮箱管理
+	 * 跳转到邮箱设置
 	 * @param req
 	 * @param resp
 	 * @return

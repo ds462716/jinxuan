@@ -5,7 +5,7 @@
 <head>
 	<%@include file="/inc/header.jsp"%>
 	<meta charset="UTF-8">
-	<title>e-Sciences+会议平台-公务邮箱管理</title>
+	<title>e-Sciences+会议平台-邮箱设置</title>
 	<link href="<%=path%>/res/asset/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<%=path%>/res/asset/css/bootstrap.css" rel="stylesheet">
 	<link href="<%=path%>/res/asset/css/echartsHome.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 		<div class="col-md-12">
 			<ol class="breadcrumb">
 				<li><a href="#">管理</a></li>
-				<li><a href="#">公务邮箱管理</a></li>
+				<li><a href="#">邮箱设置</a></li>
 			</ol>
 		</div>
 	</div>

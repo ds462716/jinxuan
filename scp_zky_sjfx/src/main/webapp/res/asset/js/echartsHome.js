@@ -104,7 +104,7 @@ $('#head')[0].innerHTML =
                 + '<li class="divider"></li>'
                 + '<li><a href="./auth.do?method=user"> 管理人员设置</a></li>'
                 + '<li><a href="./auth.do?method=role"> 角色权限管理</a></li>'
-                + '<li><a href="./auth.do?method=mailSet"> 公众邮箱管理</a></li>'
+                + '<li><a href="./auth.do?method=mailSet"> 邮箱设置</a></li>'
                 + '<li class="divider"></li>'
                 + '<li><a href="./auth.do?method=func"> 后台模块管理</a></li>'
                 + '<li><a href="./auth.do?method=pwd">修改个人密码</a></li>'
