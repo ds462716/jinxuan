@@ -58,7 +58,7 @@
 						<div class="inputContainer">
 							<label class="screen-reader-text">密码：</label>
 							<input type="password" name="password" id="password" value="" class="form-control"
-							       autocomplete="off" placeholder="请输入密码"/>
+							       autocomplete="off" placeholder="请输入密码" />
 						</div>
 					</div>
 
@@ -206,6 +206,14 @@
 			return false;
 		}
 	}
+
+	$('#password').keydown(function(e){
+		var curKey = e.which;
+		if(curKey == 13){
+			$("button[name=submit]").click();
+			return false;
+		}
+	});
 </script>
 </body>
 </html>

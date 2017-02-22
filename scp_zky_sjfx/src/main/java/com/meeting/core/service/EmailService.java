@@ -46,8 +46,8 @@ public class EmailService {
 	public boolean updateEmail(Email email){
 		try {
 			logger.info(email);
-			String sql = "update t_emails set title=?,content=?,contentHtml=?  where id=?";
-			return db.execute(sql, new Object[]{email.getTitle(),email.getContent(),email.getContentHtml(),email.getId()});
+			String sql = "update t_emails set title=?,content=?,contentHtml=? ,type=? where id=?";
+			return db.execute(sql, new Object[]{email.getTitle(),email.getContent(),email.getContentHtml(),email.getType(),email.getId()});
 		} catch (Exception e) {
 			throw new SystemException("更新Email发生异常:"+e.getMessage());
 		}

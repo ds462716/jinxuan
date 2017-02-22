@@ -31,7 +31,7 @@
 <div class="main">
 	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">报名方式</a></h2>
-	<!-- 
+
 	<div class="bmfs">
 		<div class="time">
 			<h4>会议注册截止时间 </h4>
@@ -44,18 +44,18 @@
 		<div class="ewm"><img src="<%=path%>/static/spkx/images/ewm01.png"></div>
 
 		<h3>2、网上报名</h3>
-		<p>登录我刊网站<a href="http://www.chnfood.cn" target="_blank">www.chnfood.cn</a>，点击进入会议主页进行网上报名。</p>
+		<p>登录网站<a href="http://www.egeoscience.com.cn/scp_zky1706/" target="_blank">www.egeoscience.com.cn/scp_zky1706/</a>，点击进入会议主页进行网上报名。</p>
 
 		<%--<p>两种报名方式采用其中一种即可，不需重复报名，推荐采用微信及网上报名方式。
 			<br> 会务组收到报名信息后，会尽快向参会代表电子邮箱发送电子版邀请函，同时邮寄纸质版邀请函，请务必准确填写电子邮箱、详细地址及邮编、电话号码。
 		</p>--%>
-		<p>更多会议信息请关注食品科学微博和微信</p>
+		<%--<p>更多会议信息请关注食品科学微博和微信</p>
 		<div class="ewm"><span class="col-sm-6 col-xs-12" style="padding-top:0;"><img
-				src="<%=path%>/static/spkx/images/ewm02.png"><span>食品科学订阅号</span></span><span class="col-sm-6 col-xs-12"
+				src="<%=path%>/static/spkx/images/qrcode_wx.png"><span>食品科学订阅号</span></span><span class="col-sm-6 col-xs-12"
 		                                                                                      style="padding-top:0;"><img
-				src="<%=path%>/static/spkx/images/ewm01.png"><span>食品科学服务号</span></span></div>
+				src="<%=path%>/static/spkx/images/ewm01.png"><span>食品科学服务号</span></span></div>--%>
 	</div>
-	-->
+
 </div>
 <%@include file="/inc/footer.jsp"%>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>

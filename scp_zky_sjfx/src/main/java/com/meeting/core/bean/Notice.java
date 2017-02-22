@@ -7,12 +7,14 @@ public class Notice {
 	private int id;
 	private String title;
 	private String content;
+	private String contentHtml;
 	private int status;
 
-	public Notice(int id, String title,String content, int status) {
+	public Notice(int id, String title, String content, String contentHtml, int status) {
 		this.id = id;
-		this.title=title;
+		this.title = title;
 		this.content = content;
+		this.contentHtml = contentHtml;
 		this.status = status;
 	}
 
@@ -51,12 +53,21 @@ public class Notice {
 		this.status = status;
 	}
 
+	public String getContentHtml() {
+		return contentHtml;
+	}
+
+	public void setContentHtml(String contentHtml) {
+		this.contentHtml = contentHtml;
+	}
+
 	@Override
 	public String toString() {
 		return "Notice{" +
 				"id=" + id +
 				", title='" + title + '\'' +
 				", content='" + content + '\'' +
+				", contentHtml='" + contentHtml + '\'' +
 				", status=" + status +
 				'}';
 	}

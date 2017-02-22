@@ -29,11 +29,11 @@
 <%@include file="/inc/headbar.jsp" %>
 <%--头部通知滚动条--%>
 <div class="main alert alert-info">
-	<marquee behavior="scroll"  width="100%" direction="left" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">&nbsp;
+	<marquee class="marquee"   scrollamount="1" direction="up" onmouseover="this.stop()" onmouseout="this.start()">&nbsp;
 	</marquee>
 </div>
 <div class="main">
-	<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
+	<h2><span><a href="#" >查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">会议介绍</a>
 	</h2>
 	<div class="hyjs row">
@@ -184,11 +184,11 @@
 			<br>普通代表：1600元，学生代表：800元，征文作者：800元。请于2017年6月5日前完成缴费。会议现场报名缴费标准：2000元。
 			上述费用含：会议培训费、资料费、餐费等，住宿及交通费用自理。
 			<br>（2）付款方式
-			<br>①转账汇款（公对公转账）：汇款后请及时将汇款凭证拍照上传至会议网站，或发送至邮箱：jishu@mail.las.ac.cn；
+			<br>①转账汇款（公对公转账）：汇款后请及时将汇款凭证拍照上传至会议网站的个人中心，或发送至邮箱：jishu@mail.las.ac.cn；
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位名称：中国科学院文献情报中心
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账 号：0200 0045 0908 8129 221
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开户行：北京工行海淀西区支行
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附言：姓名+会议费
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：0200 0045 0908 8129 221
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开&nbsp;&nbsp;户&nbsp;&nbsp;行：北京工行海淀西区支行
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：姓名+数据分析会议费
 			<br>②支票（京区代表）：收款方为“中国科学院文献情报中心”。
 			<br>③现金：到《数据分析与知识发现》编辑部直接交费。
 			<br>（3）其它说明
@@ -309,13 +309,9 @@
 		//获取后台通知内容
 		NoticeService.getAllEnabledNotice(function (notices) {
 			$("marquee").html('');
-			var trs='通知：';
+			var trs='';
 			$.each(notices, function (index, n) {
-				if(notices.length==1){
-					trs+=n.content;
-				}else{
-					trs+=(index+1)+'.'+n.content+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-				}
+				trs+= "<a href='tz.jsp?notice="+n.id+"'>"+n.title+"</a><br><br>";
 			});
 			$("marquee").append(trs);
 		});

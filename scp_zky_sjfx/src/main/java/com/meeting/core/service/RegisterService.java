@@ -91,7 +91,7 @@ public class RegisterService {
 					,reg.getJob(),reg.getCompany()
 					,new Date()});
 		}else{//修改
-			StringBuffer sql = new StringBuffer("update t_register set nickname=?,telphone=?,sex=?,job=?,company=?,usertype=?,zsyq=?");
+			StringBuffer sql = new StringBuffer("update t_register set nickname=?,telphone=?,sex=?,job=?,company=?,usertype=?,zsyq=?,fptt=?");
 			if(reg.getPassword()!=null&&!"".equals(reg.getPassword())){
 				sql.append(",password='"+StringUtil.MD5(reg.getPassword())+"'");
 			}
@@ -99,7 +99,7 @@ public class RegisterService {
 			System.out.println(sql.toString());
 			success = db.execute(sql.toString(), new Object[]{
 					reg.getNickname(),reg.getTelphone(),reg.getSex()
-					,reg.getJob(),reg.getCompany(),reg.getUsertype(),reg.getZsyq()});
+					,reg.getJob(),reg.getCompany(),reg.getUsertype(),reg.getZsyq(),reg.getFptt()});
 		}
 
 		if(success) {

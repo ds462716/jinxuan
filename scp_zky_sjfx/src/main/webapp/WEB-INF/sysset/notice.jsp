@@ -24,27 +24,27 @@
 		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="col-md-4">
+		<div class="col-md-12">
 			<div class="alert alert-info" id="opt-info">新增和修改都在下方表单进行</div>
 			<form class="form-horizontal" id="form-notice">
 				<input type="hidden" id="id">
 
 				<div class="form-group">
-					<label for="title" class="col-sm-3 control-label">名称</label>
-					<div class="col-sm-9">
+					<label for="title" class="col-sm-1 control-label">标题</label>
+					<div class="col-sm-11">
 						<input type="text"
 						       class="form-control" id="title" placeholder="给通知起个名字吧">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="content" class="col-sm-3 control-label">内容</label>
-					<div class="col-sm-9">
-						<textarea type="text" class="form-control" id="content" style="height: 100px"
+					<label for="content" class="col-sm-1 control-label">内容</label>
+					<div class="col-sm-11">
+						<textarea id="content" style="height: 200px"
 						          placeholder="通知的内容"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-9">
+					<div class="col-sm-offset-1 col-sm-11">
 						<a type="reset" class="cbtn o-plus" id="btn-add" title="新增"></a>
 						<a class="cbtn o-ok pull-right"
 						   id="btn-commit" title="提交"></a>
@@ -52,12 +52,12 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<table class="table table-hover table-striped table-bordered table-operate">
 				<thead style="background-color:#ccc">
 				<tr>
 					<th>ID</th>
-					<th>名称</th>
+					<th>标题</th>
 					<th>内容</th>
 					<th>启停状态</th>
 					<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="刷新"></a></th>
@@ -81,6 +81,10 @@
 <script type="text/javascript" src="<%=path%>/res/asset/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=path%>/res/asset/js/echartsHome.js"></script>
 <script src="<%=path%>/res/asset/js/bootstrap.min.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="<%=path%>/res/lib/UEditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="<%=path%>/res/lib/UEditor/ueditor.all.js"></script>
 <script type="text/javascript">
 	(function($){
 		//页面加载完毕后加载所有模块数据
@@ -97,10 +101,19 @@
 		$('#btn-add').click(function(e) {
 			$('#form-notice')[0].reset();
 			$('#id').val('');
+			UE.getEditor("content").setContent('');
 			var info = $('#opt-info');
 			info.html('表单已清空，您现在可以录入新的通知');
 			info.removeClass('alert-info').addClass('alert-default');
 		});
+		UE.getEditor("content", {
+			wordCount: false,
+			initialFrameHeight: 200,
+			toolbars: [
+				['kityformula', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'edittable', 'edittd', '|', 'spechars']
+			]
+		});
+
 	})(jQuery);
 
 	/**
@@ -133,7 +146,8 @@
 		NoticeService.getNotice(id,function(notice){
 			$('#id').val(notice.id*1);
 			$('#title').val(notice.title);
-			$('#content').val(notice.content);
+//			$('#content').val(notice.content);
+			UE.getEditor("content").setContent(notice.contentHtml?notice.contentHtml:'');
 			$('#opt-info').html('当前编辑通知：'+notice.title);
 		});
 	}
@@ -143,7 +157,11 @@
 	 * @return {[boolean/string]} [true/false/error]
 	 */
 	function saveNotice(){
-		var notice = {id:$('#id').val(),title:$('#title').val(),content:$('#content').val()};
+
+		var notice = {id:$('#id').val(),title:$('#title').val(),
+			content: UE.getEditor('content').getPlainTxt(),
+			contentHtml: UE.getEditor('content').getContent()
+		};
 		if(notice.id){
 			NoticeService.updateNotice(notice,function(msg){
 				if(msg===true)
@@ -169,11 +187,11 @@
 		var checked = !that.parent().hasClass('toggle-off');
 		if(checked){
 			that.prop('checked','checked');
-			that.parent().removeClass('toggle')
+			that.parent().removeClass('toggle');
 			that.parent().addClass('toggle toggle-off');
 		} else {
 			that.removeProp('checked');
-			that.parent().removeClass('toggle toggle-off')
+			that.parent().removeClass('toggle toggle-off');
 			that.parent().addClass('toggle');
 		}
 		NoticeService.updateNoticeStatus(noticeid,checked?2:1,function(msg){

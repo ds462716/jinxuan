@@ -20,8 +20,8 @@ public class NoticeService {
 	}
 
 	public boolean addNotice(Notice notice){
-		String sql = "insert into t_notice(title,content) values(?,?)";
-		return db.execute(sql, new Object[]{notice.getTitle(),notice.getContent()});
+		String sql = "insert into t_notice(title,content,contentHtml) values(?,?,?)";
+		return db.execute(sql, new Object[]{notice.getTitle(),notice.getContent(),notice.getContentHtml()});
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -43,8 +43,8 @@ public class NoticeService {
 
 	public boolean updateNotice(Notice notice){
 		try {
-			String sql = "update t_notice set title=?,content=? where id=?";
-			return db.execute(sql, new Object[]{notice.getTitle(),notice.getContent(),notice.getId()});
+			String sql = "update t_notice set title=?,content=?,contentHtml=? where id=?";
+			return db.execute(sql, new Object[]{notice.getTitle(),notice.getContent(),notice.getContentHtml(),notice.getId()});
 		} catch (Exception e) {
 			throw new SystemException("更新通知发生异常:"+e.getMessage());
 		}

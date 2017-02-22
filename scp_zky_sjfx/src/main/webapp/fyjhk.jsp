@@ -67,11 +67,11 @@
 			<br>普通代表：1600元，学生代表：800元，征文作者：800元。请于2017年6月5日前完成缴费。会议现场报名缴费标准：2000元。
 			上述费用含：会议培训费、资料费、餐费等，住宿及交通费用自理。
 			<br>（2）付款方式
-			<br>①转账汇款（公对公转账）：汇款后请及时将汇款凭证拍照上传至会议网站，或发送至邮箱：jishu@mail.las.ac.cn；
-			单位名称：中国科学院文献情报中心
-			账 号：0200 0045 0908 8129 221
-			开户行：北京工行海淀西区支行
-			附言：姓名+会议费
+			<br>①转账汇款（公对公转账）：汇款后请及时将汇款凭证拍照上传至会议网站的个人中心，或发送至邮箱：jishu@mail.las.ac.cn；
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位名称：中国科学院文献情报中心
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：0200 0045 0908 8129 221
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开&nbsp;&nbsp;户&nbsp;&nbsp;行：北京工行海淀西区支行
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：姓名+数据分析会议费
 			<br>②支票（京区代表）：收款方为“中国科学院文献情报中心”。
 			<br>③现金：到《数据分析与知识发现》编辑部直接交费。
 			<br>（3）其它说明
