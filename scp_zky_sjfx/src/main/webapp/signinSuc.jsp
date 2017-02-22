@@ -37,23 +37,18 @@
 	<div id="contactWrap">
 		<div class="overlay">
 			<div class="container">
-				<div class="row">
-						<div class="col-xs-12">
-						<h2 class="sectionTitle">安全中心</h2>
+				<form id="signinForm" onsubmit="javascript:return false">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<div class="alert alert-success"><i class="fa fa-check" style="border:1px solid;border-radius: 100%"></i> 参会人员：<span></span> 签到成功！<a href="index.jsp" class="pull-right" target="_self">返回首页</a></div>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<div class="alert alert-success"><i class="fa fa-check" style="border:1px solid;border-radius: 100%"></i> 重置密码成功！<a href="javascript:;" id="loginBtn">马上登录</a></div>
-					</div>
-					<div class="col-sm-8 col-sm-offset-2">
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div> <!-- /contactWrap -->
+	
 	<%@include file="/inc/footer.jsp"%>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -63,12 +58,35 @@
     <script src="<%=path%>/static/js/bootstrap.min.js"></script>
     <script src="<%=path%>/static/spkx/js/biz.js"></script>
 	
-<script type="text/javascript">
-$(document).ready(function() {
-	$('#loginBtn').off('click').on('click',function(e){
-		window.location.href = 'login.jsp?position=contactWrap';
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#signinBtn').off('click').on('click',function(e){
+
+			var that = this;
+			var register = {
+				telphone:$('#telphone_signin').val()
+			};
+			if(!register.telphone){
+				$('#telphone_signin').focus().attr('placeholder','请如实填写您的手机号！');
+				return;
+			}
+			$(that).addClass('disabled');
+			RegisterService.getRegisterByTelphone(register.telphone,function(reg){
+				if(!reg&&!reg.id){
+					alert('您还没有报名，现在快速报名并进入官方微信群！');
+					window.location.href = 'register.jsp?position=contactWrap';
+				} else {
+					RegisterService.registerSignin(register,function(msg){
+						if(msg){
+							$(that).removeClass('disabled');
+							$('#signinForm')[0].reset();
+							window.location.href = 'signinSuc.jsp?id='+reg.id;
+						}
+					});
+				}
+			});
+		});
 	});
-});
-</script>
+	</script>
 </body>
 </html>

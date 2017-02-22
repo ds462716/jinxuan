@@ -200,7 +200,7 @@ public class RegisterService {
 //        mailInfo.setCcAddress(ccList);//抄送人
         mailInfo.setBccAddress(bccList);//密送人
 
-		Map email = db.queryOne("select * from t_emails where status = 1 and flag='"+flag+"' order by id desc limit 1", null);
+		Map email = db.queryOne("select * from t_emails where status = 1 and type='"+flag+"' order by id desc limit 1", null);
 		if(email.size()!=0){
 			mailInfo.setSubject(email.get("title").toString());//会议主题
 			String mailMessage = email.get("contentHtml").toString();//会议内容
@@ -224,8 +224,8 @@ public class RegisterService {
 	}
 	
 	public boolean hasRegisterByTel(Register reg){
-		String sql = "select count(*) as hasone from t_register where email = '"+reg.getEmail()+"' ";
-		Map m = db.queryOne(sql, null);
+		String sql = "select count(*) as hasone from t_register where email = ? or telphone = ? ";
+		Map m = db.queryOne(sql, new Object[]{reg.getEmail(),reg.getTelphone()});
 		int count = 0;
 		if(m.get("hasone")==null)
 			return false;
@@ -289,6 +289,15 @@ public class RegisterService {
 		return db.queryForList("select reg.*,th.id as tid from t_register reg left join t_thesis th on (th.registerid = reg.id )  order by reg.id ");
 	}
 	
+	public List getRegisters(String condition){
+		String sql = "select reg.*,th.id as tid from t_register reg left join t_thesis th on (th.registerid = reg.id )  where 1=1 ";
+		if(StringUtil.isNotEmpty(condition)){
+			sql += " and (reg.telphone like '%"+condition+"%' "
+				+ " or reg.email like '%"+condition+"%' or reg.nickname like '%"+condition+"%') ";
+		}
+		return db.queryForList(sql);
+	}
+	
 	public boolean deleteRegister(String id){
 		return db.execute("delete from t_register where id = ?", new Object[]{id});
 	}
@@ -341,6 +350,32 @@ public class RegisterService {
 	public boolean updateRegisterPwd(String id , String password){
 		String sql = "update t_register set password = ? , status = 0 where id = ? ";
 		return db.execute(sql, new Object[]{StringUtil.MD5(password),id});
+	}
+	
+	
+	public Map getRegisterByTelphone(String telphone) {
+		String sql = "select * from t_register where telphone = ? ";
+		return db.queryOne(sql,new Object[]{telphone});
+	}
+	
+	/**
+	 * 标记用户签到状态
+	 * @param reg
+	 * @return
+	 */
+	public boolean registerSignin(Register reg){
+		String sql = "update t_register set signin = 1 where telphone = ? ";
+		return db.execute(sql, new Object[]{reg.getTelphone()});
+	}
+	
+	/**
+	 * 后台标记用户签到状态
+	 * @param id
+	 * @param signin
+	 * @return
+	 */
+	public boolean updateRegisterSignin(String id,String signin){
+		return db.execute("update t_register set signin = ? where id = ? ", new Object[]{signin,id});
 	}
 
 	public static void main(String[] args) throws ParseException{

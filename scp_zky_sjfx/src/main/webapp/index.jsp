@@ -29,8 +29,7 @@
 <%@include file="/inc/headbar.jsp" %>
 <%--头部通知滚动条--%>
 <div class="main alert alert-info">
-	<marquee behavior="scroll"  width="100%" direction="left" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">
-		首届“数据分析与知识发现”学术研讨会
+	<marquee behavior="scroll"  width="100%" direction="left" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">&nbsp;
 	</marquee>
 </div>
 <div class="main">
@@ -202,10 +201,11 @@
 </div>
 
 <div class="main">
+	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
+			href="#">会务组</a></h2>
 	<div class="hw_zs">
-		<div class="col-sm-8 col-xs-12">
+		<div class="col-sm-12 col-xs-12" style="padding:0;">
 			<div class="left">
-				<h3>会务组</h3>
 				<p>联系人：李春源（13651248379），彭希珺（13671321068）
 					<br> 地址：北京市中关村北四环西路33号5D 中国科学院文献情报中心《数据分析与知识发现》编辑部
 					<br> 电话/传真：+86-010-82624938
@@ -223,6 +223,30 @@
 			</div>
 		</div>--%>
 		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="main_bg">
+	<div class="main">
+		<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a href="#">签到&关注</a></h2>
+		<div class="fyhk">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-6">
+						<p style="text-align:center;">
+							<img src="<%=path%>/static/spkx/images/qrcode.png" width="280" height="280"/>
+							<br/>会议签到二维码
+						</p>
+					</div>
+					<div class="col-sm-6">
+						<p style="text-align:center;">
+							<img src="<%=path%>/static/spkx/images/qrcode_wx.png" width="280" height="280"/>
+							<br/>关注官方微信公众号<br/>（打开微信扫一扫）
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <%--<div class="main_bg" style="margin:0;">
@@ -253,18 +277,7 @@
 		</div>
 	</div>
 </div>--%>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12 footer">Copyright © 2007-2017 中国科学院文献情报中心 All Reserved
-			<a style="text-transform: none" href="<%=path%>/auth.do?method=logout" target="_blank" title="后台管理">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-list fa-stack-1x fa-inverse"></i>
-							</span>
-			</a>
-		</div>
-	</div>
-</div>
+<%@include file="/inc/footer.jsp"%>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/RegisterService.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/NoticeService.js'></script>
@@ -296,7 +309,7 @@
 		//获取后台通知内容
 		NoticeService.getAllEnabledNotice(function (notices) {
 			$("marquee").html('');
-			var trs='';
+			var trs='通知：';
 			$.each(notices, function (index, n) {
 				if(notices.length==1){
 					trs+=n.content;

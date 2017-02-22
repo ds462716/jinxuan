@@ -43,18 +43,7 @@
 		<p>邀请学科专家组成论文评审委员会，对论文进行同行评议。录用论文将择期在《数据分析与知识发现》期刊中正式公开发表，免收发表费。</p>
 	</div>
 </div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12 footer">Copyright © 2007-2017 中国科学院文献情报中心 All Reserved
-			<a style="text-transform: none" href="<%=path%>/auth.do?method=logout" target="_blank" title="后台管理">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-list fa-stack-1x fa-inverse"></i>
-							</span>
-			</a>
-		</div>
-	</div>
-</div>
+<%@include file="/inc/footer.jsp"%>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/RegisterService.js'></script>
 <c:if test="${not empty register}">
