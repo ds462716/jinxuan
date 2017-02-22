@@ -191,6 +191,16 @@ public class AuthorityServlet extends BaseServlet {
 	public String resource(HttpServletRequest req , HttpServletResponse resp){
 		return "sysset/resource.jsp";
 	}
+	
+	/**
+	 * 跳转到后台工作人员签到模块
+	 * @param req
+	 * @param resp
+	 * @return
+	 */
+	public String signin(HttpServletRequest req , HttpServletResponse resp){
+		return "sysset/signin.jsp";
+	}
 
 	/**
 	 * 论文下载

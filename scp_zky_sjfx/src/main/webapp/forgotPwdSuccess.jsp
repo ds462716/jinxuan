@@ -11,11 +11,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-	<meta name="description" content="第三届食品科学与人类健康国际研讨会">
+	<meta name="description" content="首届“数据分析与知识发现”学术研讨会">
 	<meta name="author" content="北京国科智地科技有限公司">
 	<link rel="shortcut icon" href="<%=path%>/static/assets/ico/favicon.ico">
 
-	<title>第三届食品科学与人类健康国际研讨会</title>
+	<title>首届“数据分析与知识发现”学术研讨会</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="<%=path%>/static/css/bootstrap.min.css" rel="stylesheet">
@@ -52,20 +52,7 @@
 			</div>
 		</div>
 	</div> <!-- /contactWrap -->
-	<footer>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-12 footer">Copyright © 2007-2017 中国科学院文献情报中心 All Reserved
-					<a style="text-transform: none" href="<%=path%>/auth.do?method=logout" target="_blank" title="后台管理">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-list fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<%@include file="/inc/footer.jsp"%>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
