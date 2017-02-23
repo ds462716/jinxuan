@@ -24,6 +24,7 @@
 	<div class="imbox">
 		<%--<img src="<%=path%>/static/spkx/images/top_txt.png">--%>
 		<div class="imbox_wz"><h1>首届“数据分析与知识发现”学术研讨会</h1>
+			<h2>暨“面向决策的大数据分析”培训班</h2>
 			<p>2017年6月8~9日　中国　北京
 			<p></div>
 		<%--<div class="imbox_wzpc"><h2>首届“数据分析与知识发现”学术研讨会</h2><p>2017年6月8~9日　中国　北京<p></div>--%>
