@@ -58,7 +58,7 @@
 				<tr>
 					<th>ID</th>
 					<th>标题</th>
-					<th>内容</th>
+					<%--<th>内容</th>--%>
 					<th>启停状态</th>
 					<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="刷新"></a></th>
 				</tr>
@@ -127,7 +127,7 @@
 			$.each(notices, function(index, notice) {
 				var tr = $('<tr><td width="40">'+notice.id*1+'</td>'
 					+'<td>'+notice.title+'</td>'
-					+'<td>'+notice.content+'</td>'
+//					+'<td>'+notice.content+'</td>'
 					+'<td width="100"><label class="toggle'
 					+(notice.status!=1?'  toggle-off':'')
 					+'"><input type="checkbox" onclick="updateNoticeStatus(this,'+notice.id*1+')" class="visi-hidden"></label></td>'
