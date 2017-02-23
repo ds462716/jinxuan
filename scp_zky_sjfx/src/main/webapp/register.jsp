@@ -125,39 +125,55 @@
 						</div>
 					</div>
 					<c:if test="${not empty register}">
-					<div class="col-sm-4 col-sm-offset-2">
-						<div class="inputContainer">
-							<label class="screen-reader-text">代表性质：</label>
-							<select id="usertype" class="form-control input-sm" name="usertype">
-								<option value="普通代表" ${not empty register and register.usertype eq '普通代表'?'selected="selected"':''}>普通代表</option>
-								<option value="在校学生" ${not empty register and register.usertype eq '在校学生'?'selected="selected"':''}>在校学生</option>
-								<option value="征文作者" ${not empty register and register.usertype eq '征文作者'?'selected="selected"':''}>征文作者</option>
-							</select>
-							<%--<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"--%>
-							       <%--value="${register.job}"  />--%>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="inputContainer">
-							<label class="screen-reader-text">住宿要求：</label>
-							<input type="text" name="zsyq" id="zsyq" placeholder="住宿要求"
-							       value="${register.zsyq}" class="form-control" autocomplete="off" />
-						</div>
-					</div>
 
+					<div class="col-sm-8 col-sm-offset-2">
+						<div class="inputContainer">
+							<label class="screen-reader-text">选择住宿：</label>
+							<select id="zsyq" class="form-control input-sm" name="zsyq">
+								<option value="不住宿" ${not empty register and register.zsyq eq '不住宿'?'selected="selected"':''}>不住宿</option>
+								<option value="标准间" ${not empty register and register.zsyq eq '标准间'?'selected="selected"':''}>标准间</option>
+								<option value="单间" ${not empty register and register.zsyq eq '单间'?'selected="selected"':''}>单间</option>
+							</select>
+
+							<%--<input type="text" name="zsyq" id="zsyq" placeholder="住宿要求"
+							       value="${register.zsyq}" class="form-control" autocomplete="off" />--%>
+						</div>
+					</div>
+					<div class="col-sm-8 col-sm-offset-2">
+						<label class="screen-reader-text" name="jfxx">缴费信息：</label>
+					</div>
+						<div class="col-sm-4 col-sm-offset-2">
+							<div class="inputContainer">
+								<label class="screen-reader-text">代表性质：</label>
+								<select id="usertype" class="form-control input-sm" name="usertype">
+									<option value="普通代表（1600元）" ${not empty register and register.usertype eq '普通代表（1600元）'?'selected="selected"':''}>普通代表（1600元）</option>
+									<option value="在校学生（800元）" ${not empty register and register.usertype eq '在校学生（800元）'?'selected="selected"':''}>在校学生（800元）</option>
+									<option value="征文作者（800元）" ${not empty register and register.usertype eq '征文作者（800元）'?'selected="selected"':''}>征文作者（800元）</option>
+								</select>
+									<%--<input type="text" name="job" id="job" class="form-control" autocomplete="off" placeholder="非必填"--%>
+									<%--value="${register.job}"  />--%>
+							</div>
+						</div>
 
 					<%--<c:if test="${not empty thesis}">--%>
-					<div class="col-sm-8 col-sm-offset-2" >
+					<div class="col-sm-4" >
 						<div class="inputContainer">
 							<label class="screen-reader-text">缴费凭据：</label>
 							<input type="file" name="file" id="file" class="form-control" value="${thesis.filename}.${thesis.type}" ${not empty thesis?'style="display: none"':'style="display: inline"'} />
 							<%--<a id="fileName" class="form-control " href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" ${not empty thesis?'style="display: inline"':'style="display: none"'}>${thesis.filename}.${thesis.type}</a><span class="input-group-addon" >重新上传</span>--%>
 							<div class="" id="fileName" ${not empty thesis?'style="display: inline"':'style="display: none"'}>
 								<a  class="form-control "  href="<%=path%>/auth.do?method=download&fileid=${thesis.id}" >${thesis.filename}.${thesis.type}</a>
-								<span class="btn btn-default" style=" width: 20% ;float: right ;margin-top: -46px" id="btn-clear" >重新上传</span>
+								<span class="btn btn-default" style=" width: 25% ;float: right ;margin-top: -46px" id="btn-clear" >重新上传</span>
 							</div>
 
 						<%--<a class="form-control" href="<%=path%>/auth.do?method=download&fileid=${thesis.id}">${thesis.filename}.${thesis.type}</a>--%>
+						</div>
+					</div>
+					<div class="col-sm-8 col-sm-offset-2">
+						<div class="inputContainer">
+							<label class="screen-reader-text">发票抬头：</label>
+							<input type="text" name="fptt" id="fptt" class="form-control" autocomplete="off" placeholder="请提供准确的发票抬头，发票一经开出，无法退换。"
+							       value="${register.fptt}"  />
 						</div>
 					</div>
 					</c:if>
@@ -543,7 +559,7 @@
 				invoice: '',
 				sfcjsx: '',
 				sxxl: '',
-				fptt: '',
+				fptt: $('#fptt').val(),
 				gjzt: '',
 				fytm: $('#fytm').val(),
 				fynrzy: $('#fynrzy').val(),

@@ -33,13 +33,13 @@
 		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="col-md-4">
+		<div class="col-md-12">
 			<div class="alert alert-info" id="opt-info">新增和修改都在下方表单进行</div>
 			<form class="form-horizontal" id="form-email">
 				<input type="hidden" id="id">
 				<div class="form-group">
-					<label for="type" class="col-sm-3 control-label">类型</label>
-					<div class="col-sm-9">
+					<label for="type" class="col-sm-1 control-label">类型</label>
+					<div class="col-sm-11">
 						<select id="type" name="type">
 							<option value="注册">注册</option>
 							<option value="改密">改密</option>
@@ -48,21 +48,21 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="title" class="col-sm-3 control-label">标题</label>
-					<div class="col-sm-9">
+					<label for="title" class="col-sm-1 control-label">标题</label>
+					<div class="col-sm-11">
 						<input type="text"
 						       class="form-control" id="title" placeholder="给邮件起个标题吧">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="content" class="col-sm-3 control-label">内容</label>
-					<div class="col-sm-9">
-						<textarea id="content" style="height: 300px"
+					<label for="content" class="col-sm-1 control-label">内容</label>
+					<div class="col-sm-11">
+						<textarea id="content" style="height: 200px"
 						          placeholder="邮件的内容"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-9">
+					<div class="col-sm-offset-1 col-sm-11">
 						<a type="reset" class="cbtn o-plus" id="btn-add" title="新增"></a>
 						<a  class="cbtn o-email" id="btn-send" title="发送邮件"></a>
 						<a class="cbtn o-ok pull-right"
@@ -71,7 +71,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<table class="table table-hover table-striped table-bordered table-operate">
 				<thead style="background-color:#ccc">
 				<tr>
@@ -285,7 +285,7 @@
 	//	UE.getEditor("content");
 	UE.getEditor("content", {
 		wordCount: false,
-		initialFrameHeight: 300,
+		initialFrameHeight: 200,
 		toolbars: [
 			['kityformula', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'edittable', 'edittd', '|', 'spechars']
 		]

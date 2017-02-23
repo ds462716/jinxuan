@@ -22,7 +22,7 @@
 		<create creator="new" javascript="NoticeService">
 	      <param name="class" value="com.meeting.core.service.NoticeService"/>
 	    </create>
-		<create creator="new" javascript="MailSetService">
+		<create creator="new" javascript="MailsetService">
 			<param name="class" value="com.meeting.core.service.MailsetService"/>
 		</create>
 

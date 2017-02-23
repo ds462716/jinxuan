@@ -169,10 +169,12 @@ textarea {
     margin: 0 auto;
 	text-align: center;
 }
-
-
-
-
+.marquee{
+	width: 100%;
+	height:25px;
+	text-align: center;
+	font: normal 16px Microsoft Yahei;
+}
 .imbox_wz {
     padding-top:80px;
     /*display: none;*/
@@ -760,6 +762,16 @@ p.animated {
 #btn-sendEmail{
 	margin-top: 5px;
 }
+.screen-reader-text[name='jfxx']{
+	padding-top:20px;
+	font: normal 30px Microsoft Yahei;
+}
+.tz h3{
+	font: normal 30px Microsoft Yahei;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
 
 /* ----倒计时用到的css------------------------------------------------------------------------------------- */
 
