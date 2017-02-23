@@ -44,17 +44,17 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="sendernick" class="col-sm-3 control-label">昵称</label>
+					<label for="senderuname" class="col-sm-3 control-label">公共邮箱</label>
 					<div class="col-sm-9">
 						<input type="text"
-						       class="form-control" id="sendernick" placeholder="昵称">
+						       class="form-control" id="senderuname" placeholder="公共邮箱">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="senderuname" class="col-sm-3 control-label">用户名</label>
+					<label for="sendernick" class="col-sm-3 control-label">别名</label>
 					<div class="col-sm-9">
 						<input type="text"
-						       class="form-control" id="senderuname" placeholder="用户名">
+						       class="form-control" id="sendernick" placeholder="别名">
 					</div>
 				</div>
 				<div class="form-group">
@@ -80,10 +80,8 @@
 				<tr>
 					<th>ID</th>
 					<th>邮件服务host</th>
-					<th>邮箱</th>
-					<th>昵称</th>
-					<th>用户名</th>
-					<th>密钥</th>
+					<th>发送方邮箱</th>
+					<th>基本信息</th>
 					<th>启停状态</th>
 					<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="刷新"></a></th>
 				</tr>
@@ -140,9 +138,9 @@
 				var tr = $('<tr><td width="40">'+mailSet.id*1+'</td>'
 					+'<td>'+mailSet.serverhost+'</td>'
 					+'<td>'+mailSet.senderaddr+'</td>'
-					+'<td width="150">'+mailSet.sendernick+'</td>'
-					+'<td>'+mailSet.senderuname+'</td>'
-					+'<td>'+mailSet.senderpwd+'</td>'
+					+'<td>公共邮箱:'+mailSet.senderuname+'<br>'
+					+'别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:'+mailSet.sendernick+'<br>'
+					+'密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;钥:'+mailSet.senderpwd+'</td>'
 					+'<td width="100"><label class="toggle'
 					+(mailSet.isactive==0?'  toggle-off':'')
 					+'"><input type="checkbox" onclick="updateMailSetStatus(this,'+mailSet.id*1+')" class="visi-hidden"></label></td>'

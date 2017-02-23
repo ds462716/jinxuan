@@ -76,8 +76,8 @@
 				<thead style="background-color:#ccc">
 				<tr>
 					<th>ID</th>
-					<th>名称</th>
-					<th>内容</th>
+					<th>标题</th>
+					<%--<th>内容</th>--%>
 					<th>类型</th>
 					<th>启停状态</th>
 					<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="刷新"></a></th>
@@ -301,7 +301,7 @@
 			$.each(email, function (index, email) {
 				var tr = $('<tr><td width="40">' + email.id * 1 + '</td>'
 					+ '<td>' + email.title + '</td>'
-					+ '<td>' + email.content + '</td>'
+//					+ '<td>' + email.content + '</td>'
 					+ '<td width="50">' + email.type + '</td>'
 					+ '<td width="100"><label class="toggle'
 					+ (email.status != 1 ? '  toggle-off' : '')
