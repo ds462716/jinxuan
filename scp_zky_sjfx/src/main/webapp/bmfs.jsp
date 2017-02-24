@@ -32,20 +32,28 @@
 	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 			href="#">报名方式</a></h2>
 
-	<div class="bmfs">
-		<div class="time">
-			<h4>会议注册截止时间 </h4>
-			报名截止日期：2017年 5月 31 日
-			<br>投稿截止日期：2017年 5月 31 日
-			<br>缴费截止日期：2017年 6月 5 日
+	<div class="bmfs row">
+		<div class="col-sm-8 col-xs-12">
+			<h3>1、网上报名</h3>
+			<p>登录网站<a href="www.egeoscience.com.cn/scp_zky1706/" target="_blank">www.egeoscience.com.cn/scp_zky1706/</a>，点击进入会议主页点击“报名参会”按钮进行网上报名。
+			</p>
+
+			<h3>2、手机微信扫描下方二维码报名</h3>
+			<%--<p>手机微信扫描下方二维码报名</p>--%>
+			<div class="ewm"><img src="<%=path%>/static/spkx/images/ewm01.png"></div>
+
+			<p>两种报名方式采用其中一种即可，请勿重复报名。
+				<br>请务必准确填写电子邮箱及电话号码。
+			</p>
 		</div>
-		<h3>1、手机微信扫描下方二维码报名</h3>
-		<p>手机微信扫描下方二维码报名</p>
-		<div class="ewm"><img src="<%=path%>/static/spkx/images/ewm01.png"></div>
-
-		<h3>2、网上报名</h3>
-		<p>登录网站<a href="http://www.egeoscience.com.cn/scp_zky1706/" target="_blank">www.egeoscience.com.cn/scp_zky1706/</a>，点击进入会议主页进行网上报名。</p>
-
+		<div class="col-sm-4 col-xs-12">
+			<div class="time">
+				<h4>会议注册截止时间 </h4>
+				报名截止日期：2017年 5月 31 日
+				<br>投稿截止日期：2017年 5月 31 日
+				<br>缴费截止日期：2017年 6月 5 日
+			</div>
+		</div>
 		<%--<p>两种报名方式采用其中一种即可，不需重复报名，推荐采用微信及网上报名方式。
 			<br> 会务组收到报名信息后，会尽快向参会代表电子邮箱发送电子版邀请函，同时邮寄纸质版邀请函，请务必准确填写电子邮箱、详细地址及邮编、电话号码。
 		</p>--%>
@@ -57,7 +65,7 @@
 	</div>
 
 </div>
-<%@include file="/inc/footer.jsp"%>
+<%@include file="/inc/footer.jsp" %>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/RegisterService.js'></script>
 <c:if test="${not empty register}">
