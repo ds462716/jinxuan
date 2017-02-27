@@ -172,7 +172,7 @@ textarea {
 .marquee{
 	width: 100%;
 	height:25px;
-	text-align: center;
+	/*text-align: center;*/
 	font: normal 16px Microsoft Yahei;
 }
 .imbox_wz {

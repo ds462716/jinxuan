@@ -29,7 +29,7 @@
 <%@include file="/inc/headbar.jsp" %>
 <%--头部通知滚动条--%>
 <div class="main alert alert-info">
-	<marquee class="marquee"   scrollamount="1" direction="up" onmouseover="this.stop()" onmouseout="this.start()">&nbsp;
+	<marquee class="marquee"   scrollamount="1" direction="left" onmouseover="this.stop()" onmouseout="this.start()">&nbsp;
 	</marquee>
 </div>
 <div class="main">
@@ -37,7 +37,7 @@
 			href="#">会议介绍</a>
 	</h2>
 	<div class="hyjs row">
-		<p class="col-sm-12 col-xs-12">
+		<p class="col-sm-12 col-xs-12 col-md-12">
 			随着信息社会进入大数据时代，信息从供人阅读为主正逐步变化到供机器阅读为主，从检索利用为主逐步深化到挖掘、计算、分析及其可视化呈现，从支持人的理解和再创造为主逐步扩展到支持知识发现和智能决策，从支持少数信息专业人员进行挖掘、分析与发现为主逐步扩展到支持大众利用开放平台和开放工具进行按需动态挖掘、交互、再利用和再创造，从拘泥于信息机构的知识与方法逐步扩展到嵌入各种业务与管理流程的智能工具。在这种环境下，数据挖掘和知识分析成为复杂多变环境和海量信息环境下各行各业知识创新和应用决策的核心竞争力之一，也是数据科学、计算机科学、情报科学、管理科学等多个学科最近及将来研究与应用的重要热点。<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次“数据分析与知识发现”学术研讨会暨“面向决策的大数据分析”培训班，将邀请国内外从事相关研究的知名专家，聚焦大数据驱动的数据挖掘、语义计算、内容分析、知识发现、智能决策等方面的技术、方法、系统及机制研究。欢迎从事相关研究和实践工作的人员踊跃报名。
 		</p>
@@ -126,8 +126,8 @@
 				<div class="txtbox col-sm-12 col-xs-12">
 					张晓林 中国科学院文献情报中心
 					<br>王永吉 中国科学院软件研究所
-					<br>朱东华 北京理工大学
-					<br>武夷山 中国科学技术发展战略研究院
+					<!-- <br>朱东华 北京理工大学
+					<br>武夷山 中国科学技术发展战略研究院 -->
 					<br>黎建辉 中国科学院计算机网络信息中心
 				</div>
 			</div>
@@ -141,7 +141,7 @@
 		<h2><span><a href="#">查看更多+</a></span><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
 				href="#">会议征稿</a></h2>
 		<div class="hylw row">
-			<div class="col-sm-8 col-xs-12">
+			<div class="col-sm-12 col-xs-12 col-md-8">
 				<div class="left">
 					<h4>征文要求</h4>
 					<p>本次大会征文主题见会议主题范围，具体要求：
@@ -152,7 +152,7 @@
 						“学术会议”，如：“学术会议：数据驱动的知识发现”。投稿截止时间为2017年5月30日。
 				</div>
 			</div>
-			<div class="col-sm-4 col-xs-12">
+			<div class="col-md-4 col-xs-12">
 				<div class="right">
 					<img src="<%=path%>/static/spkx/images/pic03.png" alt=""/>
 					<%--<h3>支持协办</h3>
@@ -238,7 +238,7 @@
 	</div>
 </div>
 
-<div class="main_bg">
+<div class="main_bg" style="display: none">
 	<div class="main">
 		<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a href="#">签到&关注</a></h2>
 		<div class="fyhk">
