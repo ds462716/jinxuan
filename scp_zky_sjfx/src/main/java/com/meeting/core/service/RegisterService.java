@@ -201,7 +201,7 @@ public class RegisterService {
         mailInfo.setBccAddress(bccList);//密送人
 
 		Map email = db.queryOne("select * from t_emails where status = 1 and type='"+flag+"' order by id desc limit 1", null);
-		if(email.size()!=0){
+		if(email!=null&&email.size()!=0){
 			mailInfo.setSubject(email.get("title").toString());//会议主题
 			String mailMessage = email.get("contentHtml").toString();//会议内容
 			if(StringUtil.isNotEmpty(templateFile))
