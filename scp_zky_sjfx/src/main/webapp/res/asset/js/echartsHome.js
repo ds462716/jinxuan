@@ -108,7 +108,7 @@ $('#head')[0].innerHTML =
                 + '<li><a href="./auth.do?method=mailSet"> 邮箱设置</a></li>'
                 + '<li class="divider"></li>'
                 + '<li><a href="./auth.do?method=func"> 后台模块管理</a></li>'
-                + '<li><a href="./auth.do?method=pwd">修改个人密码</a></li>'
+                + '<li><a href="./auth.do?method=pwd">修改管理员密码</a></li>'
               + '</ul>'
             + '</li>'
             + '<li class="' + (activeClass.about || '') + '"><a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎，'+app.user.name+'<b class="caret"></b></a>'
