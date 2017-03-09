@@ -126,7 +126,7 @@
 					</div>
 					<c:if test="${not empty register}">
 
-					<div class="col-sm-8 col-sm-offset-2">
+					<div style="display:none;" class="col-sm-8 col-sm-offset-2">
 						<div class="inputContainer">
 							<label class="screen-reader-text">选择住宿：</label>
 							<select id="zsyq" class="form-control input-sm" name="zsyq">
@@ -139,8 +139,13 @@
 							       value="${register.zsyq}" class="form-control" autocomplete="off" />--%>
 						</div>
 					</div>
-					<div class="col-sm-8 col-sm-offset-2">
-						<label class="screen-reader-text" name="jfxx">缴费信息：</label>
+					<div class="col-xs-12">
+						<p class="animated">缴费信息</p>
+
+
+						<%--<h2 class="sectionTitle">
+							${not empty register?'个人中心':'用户注册'}
+						</h2>--%>
 					</div>
 						<div class="col-sm-4 col-sm-offset-2">
 							<div class="inputContainer">
