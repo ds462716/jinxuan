@@ -49,7 +49,8 @@
 							<th>发票抬头</th>
 							<th>缴费凭据</th>
 							<th>缴费</th>
-							<th>启停 <a id="icon-refresh" class="cbtn o-cancel" title="重新加载表格数据"></a></th>
+							<th>启停</th>
+							<th>操作 <a id="icon-refresh" class="cbtn o-cancel" title="重新加载表格数据"></a></th>
 						</tr>
 					</thead>
 					<tbody id="data-content">
@@ -109,7 +110,8 @@
 					+"<td align='center' width='100' ><label  class='toggle"+(item.zfflag!=0?'':'  toggle-off') +"' title='已缴/未交'><input type='checkbox' onclick='confirmPayment(this,"+item.id*1+")' class='visi-hidden'></label></td>"
 					+'<td align="center" width="100"><label class="toggle'
 					+(item.status!=1?'':'  toggle-off')
-					+'" title="启用/禁用"><input type="checkbox" onclick="updateRegisterStatus(this,'+item.id*1+')" class="visi-hidden"></label></td></tr>');
+					+'" title="启用/禁用"><input type="checkbox" onclick="updateRegisterStatus(this,'+item.id*1+')" class="visi-hidden"></label></td>'
+					+'<td align="center" width="100"><a class="cbtn o-trash" onclick="deleteRegister('+item.id*1+');" title="删除"></a></td></tr>');
 				tbody.append(tr);
 			}
 		});
@@ -155,8 +157,8 @@
 		});
 	}
 
-	function deleteRegister(fileid){
-		RegisterService.deleteFile(fileid,function(msg){
+	function deleteRegister(id){
+		RegisterService.deleteRegister(id,function(msg){
 			if(msg===true)
 				loadRegisters();
 		});

@@ -79,7 +79,8 @@
     </config>
     <config>
       <name>appUrlPrefix</name>
-      <value></value>
+      <!-- 客户服务器配置了端口转发，无奈只能这样处理 -->
+      <value>http://www.infotech.ac.cn/conference/conference</value>
     </config>
     <config>
       <name>errorPage</name>
