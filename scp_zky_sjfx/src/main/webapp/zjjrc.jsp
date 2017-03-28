@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8" language="java"%>
+﻿<%@page contentType="text/html;charset=utf-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -45,11 +45,11 @@
 				<li id="s_1">
 					<%--<div class="txt01">按姓氏拼音排序</div>--%>
 					<div class="txtbox col-sm-12 col-xs-12">
-						张晓林  中国科学院文献情报中心
-						<br>王永吉  中国科学院软件研究所
+						张晓林     &nbsp; &nbsp;中国科学院文献情报中心
+						<br>王永吉    &nbsp; &nbsp; 中国科学院软件研究所
 						<!-- <br>朱东华  北京理工大学
-						<br>武夷山  中国科学技术发展战略研究院 -->
-						<br>黎建辉  中国科学院计算机网络信息中心
+						<br>武夷山    中国科学技术发展战略研究院 -->
+						<br>黎建辉    &nbsp; &nbsp; 中国科学院计算机网络信息中心
 					</div>
 				</li>
 			</ul>
@@ -58,6 +58,51 @@
 
 	</div>
 </div>
+
+
+<div class="main">
+	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>
+		<a href="#">报告专家</a></h2>
+	<div class="box_qh" id="qh01">
+		<%--<div class="qh_top">
+			<ul id="tabs_head">
+				<li class='menu_tab_li'><a href="#">荣誉主席</a></li>
+				<li class='menu_tab_li'><a href="#">主 席</a></li>
+				<li class='menu_tab_li'><a href="#">副主席</a></li>
+				<li class='menu_tab_li'><a href="#">委 员</a></li>
+			</ul>
+		</div>--%>
+		<div class="liebbox" id="tabs_body">
+			<ul>
+				<!--tab模块1-->
+				<li id="s_1">
+					<%--<div class="txt01">按姓氏拼音排序</div>--%>
+					<div class="txtbox col-sm-12 col-xs-12">
+						张晓林    &nbsp; &nbsp; 中国科学院文献情报中心
+						<br>王永吉    &nbsp; &nbsp; 中国科学院软件研究所						
+						<br>黎建辉    &nbsp; &nbsp; 中国科学院计算机网络信息中心
+						<br>秦　健    &nbsp; &nbsp; 美国雪城大学 
+						<br>李广建    &nbsp; &nbsp; 北京大学 
+						<br>方　曙    &nbsp; &nbsp; 中国科学院成都文献情报中心 
+						<br>王曰芬    &nbsp; &nbsp; 南京理工大学 
+						<br>欧石燕    &nbsp; &nbsp; 南京大学 
+						<br>张　岩    &nbsp; &nbsp; 北京大学 
+						<br>段宇锋    &nbsp; &nbsp; 华东师范大学   
+						<br>杨立英    &nbsp; &nbsp; 中国科学院文献情报中心 
+						<br>乐小虬    &nbsp; &nbsp; 中国科学院文献情报中心  
+						<br>李晨亮    &nbsp; &nbsp; 武汉大学 
+						<br>沈志宏    &nbsp; &nbsp; 中国科学院计算机网络信息中心 
+						<br>
+						<br>(持续更新中……)
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+
+	</div>
+</div>
+
 <div class="main_bg">
 	<div class="main">
 		<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/>

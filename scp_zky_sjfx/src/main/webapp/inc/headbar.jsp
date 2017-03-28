@@ -43,7 +43,7 @@
 			<li><a href="zjjrc.jsp">专家及日程</a></li>
 			<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hynr.html">会议内容</a></li>--%>
 			<li><a href="hyzw.jsp">会议征文</a></li>
-			<li><a href="fyjhk.jsp">费用及汇款</a></li>
+			<li><a href="fyjhk.jsp">食宿及交通</a></li>
 			<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hwz.html">会务组</a></li>--%>
 			<li><a href="bmfs.jsp">报名方式</a></li>
 			<li><a href="hwz.jsp">会务组</a></li>
@@ -97,7 +97,7 @@
 					<li><a href="zjjrc.jsp">专家及日程</a></li>
 					<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hynr.html">会议内容</a></li>--%>
 					<li><a href="hyzw.jsp">会议征文</a></li>
-					<li><a href="fyjhk.jsp">费用及汇款</a></li>
+					<li><a href="fyjhk.jsp">食宿及交通</a></li>
 					<%--<li><a href="http://www.chnfood.cn/conf/2017spkx/hwz.html">会务组</a></li>--%>
 					<li><a href="bmfs.jsp">报名方式</a></li>
 					<li><a href="hwz.jsp">会务组</a></li>
