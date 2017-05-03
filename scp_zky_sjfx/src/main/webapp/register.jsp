@@ -130,17 +130,23 @@
 						<div class="inputContainer">
 							<label class="screen-reader-text">选择住宿：</label>
 							<select id="zsyq" class="form-control input-sm" name="zsyq">
+								<option value="标间（460元/双早）" ${not empty register and register.zsyq eq '标间（460元/双早）'?'selected="selected"':''}>标间（460元/双早）</option>
+								<option value="单人间（420元/单早）" ${not empty register and register.zsyq eq '单人间（420元/单早）'?'selected="selected"':''}>单人间（420元/单早）</option>
+								<option value="标间单床位（230元/单早）" ${not empty register and register.zsyq eq '标间单床位（230元/单早）'?'selected="selected"':''}>标间单床位（230元/单早）</option>
 								<option value="不住宿" ${not empty register and register.zsyq eq '不住宿'?'selected="selected"':''}>不住宿</option>
-								<option value="标准间" ${not empty register and register.zsyq eq '标准间'?'selected="selected"':''}>标准间</option>
-								<option value="单间" ${not empty register and register.zsyq eq '单间'?'selected="selected"':''}>单间</option>
 							</select>
 
 							<%--<input type="text" name="zsyq" id="zsyq" placeholder="住宿要求"
 							       value="${register.zsyq}" class="form-control" autocomplete="off" />--%>
 						</div>
 					</div>
-					<div class="col-sm-8 col-sm-offset-2">
-						<label class="screen-reader-text" name="jfxx">缴费信息：</label>
+					<div class="col-xs-12">
+						<p class="animated">缴费信息</p>
+
+
+						<%--<h2 class="sectionTitle">
+							${not empty register?'个人中心':'用户注册'}
+						</h2>--%>
 					</div>
 						<div class="col-sm-4 col-sm-offset-2">
 							<div class="inputContainer">
@@ -177,6 +183,13 @@
 						</div>
 					</div>
 					</c:if>
+
+					<div class="col-sm-8 col-sm-offset-2">
+						<div class="inputContainer">
+							<label class="screen-reader-text">备注信息：</label>
+							<textarea name="message" id="message" class="form-control" placeholder="">${register.message}</textarea>
+						</div>
+					</div>
 					<%--</c:if>--%>
 					<%--<div class="col-sm-4 col-sm-offset-2">
 						<div class="inputContainer">

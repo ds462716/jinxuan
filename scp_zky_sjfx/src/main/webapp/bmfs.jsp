@@ -33,37 +33,45 @@
 			href="#">报名方式</a></h2>
 
 	<div class="bmfs row">
-		<div class="col-sm-8 col-xs-12">
-			<h3>1、网上报名</h3>
-			<p>登录网站<a href="www.egeoscience.com.cn/scp_zky1706/" target="_blank">www.egeoscience.com.cn/scp_zky1706/</a>，点击进入会议主页点击“报名参会”按钮进行网上报名。
-			</p>
-
-			<h3>2、手机微信扫描下方二维码报名</h3>
-			<%--<p>手机微信扫描下方二维码报名</p>--%>
-			<div class="ewm"><img src="<%=path%>/static/spkx/images/ewm01.png"></div>
-
-			<p>两种报名方式采用其中一种即可，请勿重复报名。
-				<br>请务必准确填写电子邮箱及电话号码。
+		<div class="col-sm-12 col-xs-12">
+			<p>
+			本次会议共提供两种报名方式，请任选其一，切勿重复报名，并务必准确填写电子邮箱及电话号码。
+			（1）登录会议网站主页（http://www.infotech.ac.cn/conference），点击“报名参会”进行网上报名。
+			（2）手机扫描下方二维码报名。
+			<div class="ewm" style="text-align: center;"><img src="<%=path%>/static/spkx/images/ewm01.png"></div>
 			</p>
 		</div>
-		<div class="col-sm-4 col-xs-12">
-			<div class="time">
-				<h4>会议注册截止时间 </h4>
-				报名截止日期：2017年 5月 31 日
-				<br>投稿截止日期：2017年 5月 31 日
-				<br>缴费截止日期：2017年 6月 5 日
-			</div>
-		</div>
-		<%--<p>两种报名方式采用其中一种即可，不需重复报名，推荐采用微信及网上报名方式。
-			<br> 会务组收到报名信息后，会尽快向参会代表电子邮箱发送电子版邀请函，同时邮寄纸质版邀请函，请务必准确填写电子邮箱、详细地址及邮编、电话号码。
-		</p>--%>
-		<%--<p>更多会议信息请关注食品科学微博和微信</p>
-		<div class="ewm"><span class="col-sm-6 col-xs-12" style="padding-top:0;"><img
-				src="<%=path%>/static/spkx/images/qrcode_wx.png"><span>食品科学订阅号</span></span><span class="col-sm-6 col-xs-12"
-		                                                                                      style="padding-top:0;"><img
-				src="<%=path%>/static/spkx/images/ewm01.png"><span>食品科学服务号</span></span></div>--%>
+		<%--<div class="col-sm-4 col-xs-12">--%>
+			<%--<div class="time">--%>
+				<%--<h4>会议注册截止时间 </h4>--%>
+				<%--报名截止日期：2017年 5月 31 日--%>
+				<%--<br>投稿截止日期：2017年 5月 31 日--%>
+				<%--<br>缴费截止日期：2017年 6月 5 日--%>
+			<%--</div>--%>
+		<%--</div>--%>
 	</div>
 
+	<h2><img src="<%=path%>/static/spkx/images/ico_tt.png" alt=""/><a
+			href="#">会议培训费</a></h2>
+
+	<div class="bmfs row">
+		<div class="col-sm-12 col-xs-12">
+			<p>（1）参会费用
+				<br>普通代表：1600元，学生代表：800元，征文作者：800元。请于2017年6月5日前完成缴费。会议现场报名缴费标准：2000元。
+				上述费用含：会议培训费、资料费、餐费等，住宿及交通费用自理。
+				<br>（2）付款方式
+				<br>①转账汇款（公对公转账）：汇款后请及时将汇款凭证拍照上传至会议网站的个人中心，或发送至邮箱：jishu@mail.las.ac.cn；
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位名称：中国科学院文献情报中心
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：0200 0045 0908 8129 221
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开&nbsp;&nbsp;户&nbsp;&nbsp;行：北京工行海淀西区支行
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：姓名+数据分析会议费
+				<br>②支票（京区代表）：收款方为“中国科学院文献情报中心”。
+				<br>③现金：到《数据分析与知识发现》编辑部直接交费。
+				<br>（3）其它说明
+				<br>本次培训费不能提供刷公务卡服务；发票开具内容为“培训费”；个人汇款无法开具对公发票；发票抬头请与贵单位财务人员反复核实，发票一经开出，恕不能退换；发票丢失不能重开，也不能复印发票，国家税务部门明确发票复印盖章无效。
+			</p>
+		</div>
+	</div>
 </div>
 <%@include file="/inc/footer.jsp" %>
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
